@@ -321,7 +321,7 @@ public class ServerMAIN
 	/**
 	 * Prints a the array list of all the users on the server
 	 */
-	@SuppressWarnings("unused")
+	///@SuppressWarnings("unused")
 	public void PrintUsers(){
 		Print("List of users:");
 		for (Fileio clnt : snct){
