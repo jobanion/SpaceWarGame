@@ -1,8 +1,6 @@
 package clientSide;
 
 import java.awt.Font;
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -95,7 +93,6 @@ public class SpaceGame extends BasicGameState implements ServerTALK{
 		}
 	}
 
-	@SuppressWarnings("deprecation")
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
 		background.draw(0, 0);
 		for(Ship current : ships){
@@ -195,7 +192,7 @@ public class SpaceGame extends BasicGameState implements ServerTALK{
 		}
 
 		// When escape is hit, this tells the menu that it can open
-		if(menu==true){
+		if(menu == true){
 			if(gc.isPaused() == false){ // Tells the game to pause when the menu is brought up
 				gc.setPaused(true);
 			}
@@ -310,7 +307,6 @@ public class SpaceGame extends BasicGameState implements ServerTALK{
 	}
 
 	public String packShip(){
-
 		return Main.user.ups.getUsername() + "|" +  Main.user.pos.Encode() + "|" + Main.user.getShipName();
 	}
 
@@ -374,13 +370,11 @@ public class SpaceGame extends BasicGameState implements ServerTALK{
 
 	@Override
 	public String SendInfo(String str, int num) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public String RecieveInfo(){
-
 		return null;
 	}
 	@Override
@@ -479,6 +473,7 @@ public class SpaceGame extends BasicGameState implements ServerTALK{
 
 	}
 
+	@SuppressWarnings("unused")
 	public void initial() throws SlickException{
 		int num = 3;
 		boolean connect;

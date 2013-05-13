@@ -2,8 +2,6 @@ package server;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.swing.*;
 import javax.swing.border.*;
@@ -141,6 +139,7 @@ public class ServerGui extends JFrame implements ServerInterface, WindowListener
 		}
 	}
 
+	@SuppressWarnings("unused")
 	@Override
 	public void actionPerformed(ActionEvent e) {		//#####################
 		if(e.getSource() == createWorld) {
@@ -199,6 +198,7 @@ public class ServerGui extends JFrame implements ServerInterface, WindowListener
 		logArea.append(thisColor, "\n" + message);
 	}
 
+	@SuppressWarnings("static-access")
 	private void removeUser(int name){
 		Fileio removingUser = null;
 		for (Fileio user : Server.snct){

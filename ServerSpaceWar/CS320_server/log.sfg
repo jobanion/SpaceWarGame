@@ -2,3 +2,91 @@
 16:07:33-> %DATE: Mon Dec 10 16:07:33 PST 2012%
 16:07:33-> %%PORT:	 3865  	   :%%
 16:07:33-> Initialization Complete
+12:39:47-> %%%%%%%%%%%%%%%%%%%%%
+12:39:48-> %DATE: Mon May 13 12:39:48 PDT 2013%
+12:39:48-> %%PORT:	 3865  	   :%%
+12:39:48-> Initialization Complete
+12:40:04->  0: User has connected sucessfully
+12:40:04->  0: Error: file is not there
+12:40:04->  0: Client Connection Successful: disconnecting
+12:40:04->  0: Closing Successful: Client Disconnected
+12:40:10->  1: User has connected sucessfully
+12:40:10->  1: Error: file is not there
+12:40:10->  1: Client Connection Successful: disconnecting
+12:40:10->  1: Closing Successful: Client Disconnected
+12:40:24->  2: User has connected sucessfully
+12:40:24->  2: File located: writing..CS320_server\jeff\jeff.gme
+12:40:24->  2: KFile located: reading..
+12:40:24->  2: New Client Connecting: jeff
+12:40:24->  2: Client Connection Successful: disconnecting
+12:40:24->  2: Closing Successful: Client Disconnected
+12:40:31->  3: User has connected sucessfully
+12:40:31->  3: KFile located: reading..
+12:40:31->  3: Closing Successful: Client Disconnected
+12:40:34->  4: User has connected sucessfully
+12:40:34->  4: KFile located: reading..
+12:40:34->  4: File located: writing..CS320_server\jeff\MyStats.gme
+12:40:34->  4: Client connection successful: transferring him to game client
+12:40:34->  4: Game not found: creating...
+12:40:35->  6: gave string to userJA|34.56|44.55|54.32|1
+12:40:42->  6: Could not update Thread!
+12:40:42->  6: Could not update User! Connection reset by peer: socket write error
+12:40:42->  6: Closing...
+12:40:42->  6: Could not read from user: Connection reset
+12:40:42->  6: File located: writing..CS320_server\jeff\MyStats.gme
+12:40:42->  4: Closing Successful: Client Disconnected
+13:41:02->  7: User has connected sucessfully
+13:41:02->  7: KFile located: reading..
+13:41:02->  7: successful1
+13:41:02->  7: Client Connection Successful: disconnecting
+13:41:02->  7: Closing Successful: Client Disconnected
+13:41:17->  8: User has connected sucessfully
+13:41:17->  8: KFile located: reading..
+13:41:17->  8: Closing Successful: Client Disconnected
+13:41:24->  9: User has connected sucessfully
+13:41:24->  9: KFile located: reading..
+13:41:24->  9: KFile located: reading..
+13:41:24->  9: Client connection successful: transferring him to game client
+13:41:24->  9: Found game: connecting...
+13:41:25->  10: gave string to userJA|34.56|44.55|54.32|1
+13:47:01->  10: Could not update Thread!
+13:47:01->  10: Could not update User! Connection reset by peer: socket write error
+13:47:01->  10: Closing...
+13:47:01->  10: Could not read from user: Connection reset
+13:47:01->  10: File located: writing..CS320_server\jeff\MyStats.gme
+13:47:01->  9: Closing Successful: Client Disconnected
+13:47:16->  11: User has connected sucessfully
+13:47:16->  11: KFile located: reading..
+13:47:16->  11: successful1
+13:47:16->  11: Client Connection Successful: disconnecting
+13:47:16->  11: Closing Successful: Client Disconnected
+13:47:18->  12: User has connected sucessfully
+13:47:18->  12: KFile located: reading..
+13:47:18->  12: KFile located: reading..
+13:47:18->  12: Client connection successful: transferring him to game client
+13:47:18->  12: Found game: connecting...
+13:47:19->  13: gave string to userJA|34.56|44.55|54.32|1
+13:47:29-> List of users:
+13:47:29-> List of users:
+13:47:34->  ServerPIE: Disconnected user
+13:53:38-> %%%%%%%%%%%%%%%%%%%%%
+13:53:38-> %DATE: Mon May 13 13:53:38 PDT 2013%
+13:53:38-> %%PORT:	 3865  	   :%%
+13:53:38-> Initialization Complete
+13:53:45->  0: User has connected sucessfully
+13:53:45->  0: KFile located: reading..
+13:53:45->  0: successful1
+13:53:45->  0: Client Connection Successful: disconnecting
+13:53:45->  0: Closing Successful: Client Disconnected
+13:53:47->  1: User has connected sucessfully
+13:53:47->  1: KFile located: reading..
+13:53:47->  1: KFile located: reading..
+13:53:47->  1: Client connection successful: transferring him to game client
+13:53:47->  1: Game not found: creating...
+13:53:48->  3: gave string to userJA|34.56|44.55|54.32|1
+13:54:25->  3: Could not update Thread!
+13:54:25->  3: Could not update User! Software caused connection abort: socket write error
+13:54:25->  3: Closing...
+13:54:25->  3: Could not read from user: null
+13:54:25->  3: File located: writing..CS320_server\jeff\MyStats.gme
+13:54:25->  1: Closing Successful: Client Disconnected

@@ -28,7 +28,6 @@ public class Main extends StateBasedGame{
 		this.enterState(login);
 	}
 
-	// Does Tim's stuff not need to be in here?
 	public static void main(String[] args) {
 		AppGameContainer appgc;
 		try{

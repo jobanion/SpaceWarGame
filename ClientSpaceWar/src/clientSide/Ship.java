@@ -93,7 +93,7 @@ public class Ship {
 	}
 
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-		if(this.isHit == false) {
+		if(this.isHit == false && !gc.isPaused()) {
 			this.move(hip, this.ship.getRotation());
 			this.ship.draw(this.x, this.y);
 		} else if(System.currentTimeMillis() <= this.explosionTime+300) {
