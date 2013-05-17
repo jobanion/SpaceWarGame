@@ -33,13 +33,24 @@ public class Ship {
 
 	public void isCollision(){
 		for(Ship current : SpaceGame.ships){
-			if((this.getClass() == AI.class && current.getClass() == AI.class) || (this.getClass() == OtherPlayer.class && current.getClass() == OtherPlayer.class))
+			if((this.getClass() == AI.class && 
+					current.getClass() == AI.class) || 
+					(this.getClass() == OtherPlayer.class && 
+					current.getClass() == OtherPlayer.class)) { // Split up to be more legible
+				
 				continue;
+			}
 			if(this.currentShot != null && this != current)
-				if (this.currentShot.x < current.x + current.ship.getWidth() && this.currentShot.x > current.x && this.currentShot.y < current.y + current.ship.getHeight() && this.currentShot.y > current.y && !current.isHit) { 
+				if (this.currentShot.x < current.x + current.ship.getWidth() && 
+					this.currentShot.x > current.x &&
+					this.currentShot.y < current.y + current.ship.getHeight() &&
+					this.currentShot.y > current.y && 
+					!current.isHit) { // Split up to be more legible
+			
 					System.out.println("HIT " + current.getShipName() + "!!");
 					current.isHit = true;
 					SpaceGame.ships.remove(current);
+					
 					if(current.getClass() == AI.class){
 						SpaceGame.count--;
 						SpaceGame.killCount++;
@@ -47,8 +58,9 @@ public class Ship {
 					} else {
 						SpaceGame.deathCount++;
 					}
-					if(SpaceGame.aiShips.isEmpty())
+					if(SpaceGame.aiShips.isEmpty()) {
 						SpaceGame.respawnTimer = System.currentTimeMillis();
+					}
 					this.currentShot.hit = true;
 					this.explosionTime = System.currentTimeMillis();
 				}
@@ -59,7 +71,9 @@ public class Ship {
 		if(input.isKeyDown(Input.KEY_C)){
 			SpaceGame.spawnAI();
 		}
+		
 		float rotates = 0.2f * delta;
+		
 		if(input.isKeyDown(Input.KEY_LEFT) && !this.isHit) {
 			this.rotate(-rotates, this.ship);
 			Main.user.pos.setTurn(-rotates);

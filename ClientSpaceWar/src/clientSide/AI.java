@@ -11,7 +11,7 @@ public class AI extends Ship{
 		
 	}
 	
-	public int leftOrRight(){
+	public int leftOrRight(){ // Tells the AI whice way to turn to go towards the player
 		target = nearestPlayer();
 		if(target == null) {
 			SpaceGame.playerDead = true;
@@ -23,6 +23,7 @@ public class AI extends Ship{
 		float arccos = (float) Math.acos(y/(Math.sqrt(x*x + y*y))) * 57.2957795f;
 		float arctan = (float) Math.atan(y/x) * 57.2957795f;
 		float rotation = this.ship.getRotation();
+		
 		if(arcsin >= 0){
 			if(arctan <= rotation - 90f){
 				return -1;
@@ -38,13 +39,14 @@ public class AI extends Ship{
 	
 	public Ship nearestPlayer() {
 		Ship closest = null;
-		for(Ship current : SpaceGame.ships){
-			if(current.getClass() != AI.class){
-				if(closest == null)
+		for(Ship current : SpaceGame.ships) {
+			if(current.getClass() != AI.class) {
+				if(closest == null) {
 					closest = current;
-				else{
-					if(distanceBetween(this.point, current.point) < distanceBetween(this.point, closest.point))
+				} else {
+					if(distanceBetween(this.point, current.point) < distanceBetween(this.point, closest.point)) {
 						closest = current;
+					}
 				}
 					
 			}
@@ -61,9 +63,9 @@ public class AI extends Ship{
 
 class Point {
 	float x, y;
-	public Point(float x, float y){ this.x = x; this.y = y; }
-	public void setX(float x){ this.x = x; }
-	public void setY(float y){ this.y = y; }
-	public float getX(){ return this.x; }
-	public float getY(){ return this.y; }
+	public Point(float x, float y) 	{ this.x = x; this.y = y; }
+	public void setX(float x)	  	{ this.x = x; }
+	public void setY(float y)		{ this.y = y; }
+	public float getX()				{ return this.x; }
+	public float getY()				{ return this.y; }
 }
