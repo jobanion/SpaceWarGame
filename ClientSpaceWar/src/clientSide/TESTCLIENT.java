@@ -2,13 +2,13 @@ package clientSide;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.io.IOException;
 import java.net.Socket;
 
 public class TESTCLIENT {
 	static DataOutputStream out;
 	static DataInputStream in;
 	
+	@SuppressWarnings("resource")
 	public static void main(String argv[]) throws Exception
     {
 		
@@ -37,6 +37,7 @@ public class TESTCLIENT {
 		}
     }
 
+	@SuppressWarnings("unused")
 	private static void test0() throws Exception {
 		boolean check;
 		String str = "JOE|pie|1";	// change name to change behavior (username|password|shipnum)
@@ -50,6 +51,7 @@ public class TESTCLIENT {
 		}
 	}
 	
+	@SuppressWarnings("unused")
 	private static void test1() throws Exception {
 		boolean check;
 		String str = "Jeff|not Pie|73"; 	// change stuff to change behavior (username|password|shipnum)

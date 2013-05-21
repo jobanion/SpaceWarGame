@@ -9,8 +9,6 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Customize extends BasicGameState implements ServerTALK{
 	
@@ -59,7 +57,6 @@ public class Customize extends BasicGameState implements ServerTALK{
 		g.drawRect((Main.width/2) - 390, (Main.height/2) - 200, 780, 400);
 
 		g.setColor(Color.white);
-		//System.out.println(SpaceGame.shipName1);
 		// First Row
 		ship1.draw((Main.width/2) - 390 + 95 - ship1Width,  (Main.height/2) - 200 + 75 - ship1Height);
 		if(SpaceGame.shipName1.equals("spaceship1.gif")) {
@@ -110,10 +107,8 @@ public class Customize extends BasicGameState implements ServerTALK{
 			ix = 8;
 		}
 		
-		
 		g.drawRect((Main.width/2) - 390 + 495, (Main.height/2) - 200 + 450, 63, 20);
 		g.drawString("Cancel", (Main.width/2) - 390 + 500, (Main.height/2) - 200 + 450);
-//		
 		g.drawRect((Main.width/2) - 390 + 595, (Main.height/2) - 200 + 450, 126, 20);
 		g.drawString("Apply Changes", (Main.width/2) - 390 + 600, (Main.height/2) - 200 + 450);
 	}
@@ -122,11 +117,6 @@ public class Customize extends BasicGameState implements ServerTALK{
 		Input input = gc.getInput();
 		int posX = Mouse.getX();
 		int posY = Mouse.getY();
-
-		// To find where the edges that need checking are at
-//		if(Mouse.isButtonDown(0)){
-//			System.out.println("Mouse is at: " + posX + ", " + posY + "");
-//		}
 
 		// Show1
 		if((posX>(Main.width/2) - 390 + 60 && posX<(Main.width/2) - 390 + 130)&&(posY>(Main.height/2) - 300 + 390 && posY<(Main.height/2) - 300 + 460)) {
@@ -258,13 +248,8 @@ public class Customize extends BasicGameState implements ServerTALK{
 	}
 	
 	public void apply() {
-		//System.out.println(SpaceGame.shipName1);
 		Main.user.setShipName(SpaceGame.shipName1);
-		// update ship (yes, i guess we need to add this...)
-		//System.out.println(Main.user.getUsername() + "|" + Menu.password + "|" + SpaceGame.shipName1.substring(9, 10));
 		SendInfo(Main.user.ups.Encode(), 2);
-		
-		
 	}
 
 	public int getID(){
@@ -273,20 +258,18 @@ public class Customize extends BasicGameState implements ServerTALK{
 
 	@Override
 	public String RecieveInfo() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public String SendInfo(String str, int num) {
-		boolean checkval = false;
 		boolean setup = SetUpConnection();
 		if (setup){
 			try{
 				out.writeInt(num);
-				//System.out.println("OO" + str);
+				//System.out.println("OO " + str);
 				out.writeUTF(str);
-				checkval = in.readBoolean();
+				in.readBoolean();
 				CloseConnection();
 			} catch(Exception e){
 				System.out.println("Cannot set up connection");
@@ -312,7 +295,9 @@ public class Customize extends BasicGameState implements ServerTALK{
 	}
 
 	@Override
-	public void gameTalk() {}
+	public void gameTalk() {
+		return;
+	}
 
 	@Override
 	public boolean CloseConnection() {
@@ -332,6 +317,5 @@ public class Customize extends BasicGameState implements ServerTALK{
 			System.out.println("^^User could not close Socket" + e1.getMessage());
 		}
 		return true;
-		
 	}
 }

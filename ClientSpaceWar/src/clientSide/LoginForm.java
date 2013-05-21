@@ -93,7 +93,6 @@ public class LoginForm extends JDialog implements ServerTALK{
 		loginPanel.add(exit);
 
 
-
 		//###################### Create Panel ######################
 		// Creating the grid for the second
 		createPanel = new JPanel( new FlowLayout());
@@ -161,7 +160,6 @@ public class LoginForm extends JDialog implements ServerTALK{
 		String uName = (usernameInput.getText().length()>0?usernameInput.getText():"You have not entered any!");
 		String[] parsed;
 
-
 		// Used to show all current users, needs to be updated to where the arrayList is though
 		//        for(User user : users) {
 		//        	System.out.println(user.getUsername() + " " + user.getPass() + "");
@@ -202,7 +200,6 @@ public class LoginForm extends JDialog implements ServerTALK{
 		String firstPass = new String(passwordInput1.getPassword());  
 		String secondPass = new String(passwordInput2.getPassword()); 
 		String userName = usernameInput2.getText();
-		String[] parsed;
 
 		Boolean uNameTaken = false, pWordsWrong = false, empty = false;
 
@@ -210,7 +207,6 @@ public class LoginForm extends JDialog implements ServerTALK{
 			System.out.println(userName + " " + firstPass + "");
 			//			Main.users.add(new User(userName, firstPass, 0, 0, ship));
 			//			Main.user.getUsername() = userName;
-			//			
 			fromServer = SendInfo(userName + "|" + firstPass + "|" + String.valueOf(1), 1);
 			if (fromServer == null) uNameTaken = true;
 			else{
@@ -233,7 +229,6 @@ public class LoginForm extends JDialog implements ServerTALK{
 				pWordsWrong = true;
 			}
 		}
-
 
 		if (!accept){
 			if(empty) {
@@ -263,15 +258,11 @@ public class LoginForm extends JDialog implements ServerTALK{
 			}
 		}
 
-
-
 		// ************************************************************************
 		// ************************************************************************
 		//        for(User user : Game.users) {
-		//        	System.out.println(user.getUsername() + " " + user.getPass() + "");
+		//        	  System.out.println(user.getUsername() + " " + user.getPass() + "");
 		//        }
-
-
 	}
 
 	class LoginAction implements ActionListener{
@@ -353,7 +344,6 @@ public class LoginForm extends JDialog implements ServerTALK{
 
 	@Override
 	public String RecieveInfo() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 }

@@ -108,7 +108,7 @@ public class Ship {
 		if(this.isHit == false && !gc.isPaused()) {
 			this.move(hip, this.ship.getRotation());
 			this.ship.draw(this.x, this.y);
-		} else if(System.currentTimeMillis() <= this.explosionTime+300) {
+		} else if(System.currentTimeMillis() <= this.explosionTime + 300) {
 			SpaceGame.explosion.draw(this.x-15, this.y-10);		// I'd like to make it just show the explosion for a bit, then stop showing it
 		}
 

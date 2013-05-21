@@ -49,46 +49,5 @@ public class Shot {
 		for(Ship current : SpaceGame.ships){
 			current.isCollision();
 		}
-//		if(shipNum == 1) {
-//			if (this.x < SpaceGame.newShip2.x + SpaceGame.newShip2.ship.getWidth() && this.x > SpaceGame.newShip2.x && this.y < SpaceGame.newShip2.y + SpaceGame.newShip2.ship.getHeight() && this.y > SpaceGame.newShip2.y && !SpaceGame.newShip2.isHit) { 
-//				System.out.println("HIT P2!!");
-//				SpaceGame.newShip2.isHit = true;
-//				hit = true;
-//				SpaceGame.explosionTime2 = System.currentTimeMillis();
-//			} else if (this.x < SpaceGame.newAIShip.x + SpaceGame.newAIShip.ship.getWidth() && this.x > SpaceGame.newAIShip.x && this.y < SpaceGame.newAIShip.y + SpaceGame.newAIShip.ship.getHeight() && this.y > SpaceGame.newAIShip.y && !SpaceGame.newAIShip.isHit) { 
-//				System.out.println("HIT AI!!");
-//				SpaceGame.newAIShip.isHit = true;
-//				hit = true;
-//				SpaceGame.explosionTime3 = System.currentTimeMillis();
-//			}
-//		}
-//		
-//		if(shipNum == 2) {
-//			if (this.x < SpaceGame.newShip1.x + SpaceGame.newShip1.ship.getWidth() && this.x > SpaceGame.newShip1.x && this.y < SpaceGame.newShip1.y + SpaceGame.newShip1.ship.getHeight() && this.y > SpaceGame.newShip1.y && !SpaceGame.newShip1.isHit) { 
-//				System.out.println("HIT P1!!");
-//				SpaceGame.newShip1.isHit = true;
-//				hit = true;
-//				SpaceGame.explosionTime1 = System.currentTimeMillis();
-//			} else if (this.x < SpaceGame.newAIShip.x + SpaceGame.newAIShip.ship.getWidth() && this.x > SpaceGame.newAIShip.x && this.y < SpaceGame.newAIShip.y + SpaceGame.newAIShip.ship.getHeight() && this.y > SpaceGame.newAIShip.y && !SpaceGame.newAIShip.isHit) { 
-//				System.out.println("HIT AI!!");
-//				SpaceGame.newAIShip.isHit = true;
-//				hit = true;
-//				SpaceGame.explosionTime3 = System.currentTimeMillis();
-//			}
-//		}
-//		
-//		if(shipNum == 3) {
-//			if (this.x < SpaceGame.newShip1.x + SpaceGame.newShip1.ship.getWidth() && this.x > SpaceGame.newShip1.x && this.y < SpaceGame.newShip1.y + SpaceGame.newShip1.ship.getHeight() && this.y > SpaceGame.newShip1.y && !SpaceGame.newShip1.isHit) { 
-//				System.out.println("HIT P1!!");
-//				SpaceGame.newShip1.isHit = true;
-//				hit = true;
-//				SpaceGame.explosionTime1 = System.currentTimeMillis();
-//			} else if (this.x < SpaceGame.newShip2.x + SpaceGame.newShip2.ship.getWidth() && this.x > SpaceGame.newShip2.x && this.y < SpaceGame.newShip2.y + SpaceGame.newShip2.ship.getHeight() && this.y > SpaceGame.newShip2.y && !SpaceGame.newShip2.isHit) { 
-//				System.out.println("HIT P2!!");
-//				SpaceGame.newShip2.isHit = true;
-//				hit = true;
-//				SpaceGame.explosionTime2 = System.currentTimeMillis();
-//			}
-//		}
 	}
 }

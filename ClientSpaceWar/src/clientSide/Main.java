@@ -10,7 +10,7 @@ public class Main extends StateBasedGame{
 	public static int port = 3865;
 	public static final String gamename = "Space War Game";
 	public static final int menu = 0, customize = 1, playGame = 2, login = 3;	// that states
-	public static int width = 1200, height = 650;							// Window dimensions
+	public static int width = 1200, height = 650;							    // Window dimensions
 
 	public Main(String gamename){
 		super(gamename);
@@ -41,48 +41,4 @@ public class Main extends StateBasedGame{
 			System.out.println("Cannot load Game");
 		}
 	}
-
-//	public static void main(String[] args) {
-//		AppGameContainer appgc;
-//		try{
-//			appgc = new AppGameContainer(new Main(gamename)){
-//				@Override
-//				protected void gameLoop() throws SlickException {
-//					int delta = getDelta();
-//					if (!Display.isVisible() && updateOnlyOnVisible) {
-//						try { Thread.sleep(100); } catch (Exception e) {}
-//					} else {
-//						try {
-//							updateAndRender(delta);
-////							if(!SpaceGame.menu) { //!SpaceGame.newAIShip.isHit &&
-////								SpaceGame.aiDoStuff(delta);
-////							}
-//						} catch (SlickException e) {
-//							Log.error(e);
-//							running = false;
-//							return;
-//						}
-//					}
-//
-//					updateFPS();
-//
-//					Display.update();
-//					
-//					if (Display.isCloseRequested()) {
-//						if (game.closeRequested()) {
-//							running = false;
-//						}
-//					}
-//				}
-//			};
-//			height = appgc.getScreenHeight() - 80;
-//			width = appgc.getScreenWidth() - 15;
-//			appgc.setDisplayMode(width, height, false);
-//			appgc.setShowFPS(false);
-//			appgc.start();
-//		}catch(SlickException e){
-//			System.out.println("Cannot load Game");
-//		}
-//	}
-	
 }

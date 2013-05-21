@@ -25,6 +25,7 @@ public class MyStats implements Encodable {
 		String encoding = String.valueOf(this.kills) + "|" + String.valueOf(this.deaths) + "|" + String.valueOf(this.kdr); // add to later
 		return encoding;
 	}
+	
 	@Override
 	public void Decode(String encoding) {
 		String[] values = encoding.split("\\|");

@@ -62,9 +62,6 @@ public class SpaceGame extends BasicGameState implements ServerTALK{
 				ships.add(pShip1);
 				respawnAI();
 			}
-			//			ships.add(pShip1);
-			//			ships.add(pShip2);
-			//			respawnAI();
 
 			/// set up Communication stuff with server (XXX MOVED TO SERVERCHOOSE)
 			//			try{
@@ -482,7 +479,7 @@ public class SpaceGame extends BasicGameState implements ServerTALK{
 
 		ships.add(pShip1);
 
-		
+
 		String toUser = null;
 
 		// connect to server (and get boring stuff out of the way...)
@@ -496,7 +493,7 @@ public class SpaceGame extends BasicGameState implements ServerTALK{
 				out.writeInt(num);
 				out.writeUTF(Main.user.ups.getUsername() + "|" + Main.user.ups.getPass() + "|" + SpaceGame.shipName1);
 				num = 2;
-				
+
 				in.readBoolean();
 				fromUser = in.readUTF();	// initial stuff up to here (will make more sense when implemented in the correct class)
 				System.out.println("<>" + fromUser);
@@ -513,7 +510,7 @@ public class SpaceGame extends BasicGameState implements ServerTALK{
 			}
 		}
 		System.out.println("Finished initializationJOE");
-		initial = false; 									// set boolean variable = false, so it does not repeat initialization, and reset to true when go to main
+		initial = false; 	// set boolean variable = false, so it does not repeat initialization, and reset to true when go to main
 
 		// extra testing stuff:
 		try{
@@ -532,6 +529,5 @@ public class SpaceGame extends BasicGameState implements ServerTALK{
 			ioe.printStackTrace();
 		}
 		// end of extra testing stuff
-
 	}
 }

@@ -8,10 +8,9 @@ public class AI extends Ship{
 	public AI(float x, float y) throws SlickException {
 		super("AI", x, y, "EnemyShip.gif");
 		this.isHit = false;
-		
 	}
 	
-	public int leftOrRight(){ // Tells the AI whice way to turn to go towards the player
+	public int leftOrRight() { // Tells the AI whice way to turn to go towards the player
 		target = nearestPlayer();
 		if(target == null) {
 			SpaceGame.playerDead = true;
@@ -24,13 +23,13 @@ public class AI extends Ship{
 		float arctan = (float) Math.atan(y/x) * 57.2957795f;
 		float rotation = this.ship.getRotation();
 		
-		if(arcsin >= 0){
-			if(arctan <= rotation - 90f){
+		if(arcsin >= 0) {
+			if(arctan <= rotation - 90f) {
 				return -1;
 			}
 			return 1;
 		} else {
-			if(arccos >= rotation && arccos <= rotation + 180f){
+			if(arccos >= rotation && arccos <= rotation + 180f) {
 				return -1;
 			}
 			return 1;
@@ -48,7 +47,6 @@ public class AI extends Ship{
 						closest = current;
 					}
 				}
-					
 			}
 		}
 		return closest;
