@@ -105,7 +105,7 @@ public class SpaceGame extends BasicGameState implements ServerTALK{
 			}
 		}
 
-		if(menu == true){
+		if(menu == true && playerDead != true){
 			g.drawString(resume,    (Main.width/2) - resume.length(), 200);
 			g.drawString(mainMenu, (Main.width/2) - mainMenu.length(), 250);
 			g.drawString(exit, (Main.width/2) - exit.length(), 300);

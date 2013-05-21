@@ -2,7 +2,6 @@ package clientSide;
 
 public class Shot {
 
-	//Shape shotShape = null;
 	float x, y, rotation;
 	long timeFired = 0;
 	boolean shotVisible = false;
