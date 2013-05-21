@@ -244,7 +244,10 @@ public class Customize extends BasicGameState implements ServerTALK{
 			apply();
 			sbg.enterState(0);
 		}
-		
+		if(input.isKeyPressed(Input.KEY_ESCAPE)) {
+			MultiplayerGame.shipName1 = oldShipName;
+			sbg.enterState(0);
+		}
 	}
 	
 	public void apply() {
