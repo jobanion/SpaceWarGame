@@ -94,3 +94,167 @@
 11:56:28-> %DATE: Tue May 21 11:56:28 PDT 2013%
 11:56:28-> %%PORT:	 3865  	   :%%
 11:56:28-> Initialization Complete
+11:59:42-> %%%%%%%%%%%%%%%%%%%%%
+11:59:42-> %DATE: Tue May 21 11:59:42 PDT 2013%
+11:59:42-> %%PORT:	 3865  	   :%%
+11:59:42-> Initialization Complete
+12:00:54->  0: User has connected sucessfully
+12:00:54->  0: HIjeff|qwe|1
+12:00:54->  0: KFile located: reading..
+12:00:54->  0: successful1
+12:00:54->  0: Client Connection Successful: disconnecting
+12:00:54->  0: Closing Successful: Client Disconnected
+12:01:00->  1: User has connected sucessfully
+12:01:00->  1: HIjeff|qwe|2
+12:01:00->  1: KFile located: reading..
+12:01:00->  1: Closing Successful: Client Disconnected
+12:01:05->  2: User has connected sucessfully
+12:01:05->  2: HIjeff|qwe|3
+12:01:05->  2: KFile located: reading..
+12:01:05->  2: Closing Successful: Client Disconnected
+12:01:06->  3: User has connected sucessfully
+12:01:06->  3: HIjeff|qwe|spaceship3.gif
+12:01:06->  3: KFile located: reading..
+12:01:06->  3: KFile located: reading..
+12:01:06->  3: Client connection successful: transferring him to game client
+12:01:06->  3: Game not found: creating...
+12:01:07->  5: gave string to userJA|34.56|44.55|54.32|1
+12:01:39->  5: Could not update Thread!
+12:01:39->  5: Could not update User! Broken pipe
+12:01:39->  5: Closing...
+12:01:39->  5: Could not read from user: Connection reset
+12:01:39->  5: File located: writing..CS320_server/jeff/MyStats.gme
+12:01:39->  3: Closing Successful: Client Disconnected
+12:02:01-> List of users:
+12:02:01-> List of users:
+12:06:53-> %%%%%%%%%%%%%%%%%%%%%
+12:06:53-> %DATE: Tue May 21 12:06:53 PDT 2013%
+12:06:53-> %%PORT:	 3865  	   :%%
+12:06:53-> Initialization Complete
+12:07:06->  0: User has connected sucessfully
+12:07:06->  0: HIjeff|qwe|1
+12:07:06->  0: KFile located: reading..
+12:07:06->  0: VALUES: jeff
+12:07:06->  0: VALUES: qwe
+12:07:06->  0: VALUES: 1
+12:07:06->  0: VALUES: jeff
+12:07:06->  0: VALUES: qwe
+12:07:06->  0: compareUNAME: true
+12:07:06->  0: successful1
+12:07:06->  0: Client Connection Successful: disconnecting
+12:07:06->  0: Closing Successful: Client Disconnected
+12:07:10->  1: User has connected sucessfully
+12:07:10->  1: HIjeff|qwe|2
+12:07:10->  1: KFile located: reading..
+12:07:10->  1: VALUES: jeff
+12:07:10->  1: VALUES: qwe
+12:07:10->  1: VALUES: 2
+12:07:10->  1: VALUES: jeff
+12:07:10->  1: VALUES: qwe
+12:07:10->  1: compareUNAME: true
+12:07:10->  1: Closing Successful: Client Disconnected
+12:11:30-> %%%%%%%%%%%%%%%%%%%%%
+12:11:30-> %DATE: Tue May 21 12:11:30 PDT 2013%
+12:11:30-> %%PORT:	 3865  	   :%%
+12:11:30-> Initialization Complete
+12:11:42->  0: User has connected sucessfully
+12:11:42->  0: HIjeff|qwe|1
+12:11:42->  0: KFile located: reading..
+12:11:42->  0: VALUES: jeff
+12:11:42->  0: VALUES: qwe
+12:11:42->  0: VALUES: 1
+12:11:42->  0: VALUES: jeff
+12:11:42->  0: VALUES: qwe
+12:11:42->  0: compareUNAME: true
+12:11:42->  0: successful1
+12:11:42->  0: Client Connection Successful: disconnecting
+12:11:42->  0: Closing Successful: Client Disconnected
+12:11:47->  1: User has connected sucessfully
+12:11:48->  1: HIjeff|qwe|1
+12:11:48->  1: KFile located: reading..
+12:11:48->  1: VALUES: jeff
+12:11:48->  1: VALUES: qwe
+12:11:48->  1: VALUES: 1
+12:11:48->  1: VALUES: jeff
+12:11:48->  1: VALUES: qwe
+12:11:48->  1: compareUNAME: true
+12:11:48->  1: File located: writing..CS320_server/jeff/jeff.gme
+12:11:48->  1: Closing Successful: Client Disconnected
+12:11:58->  2: User has connected sucessfully
+12:11:58->  2: HIjeff|qwe|2
+12:11:58->  2: KFile located: reading..
+12:11:58->  2: VALUES: jeff
+12:11:58->  2: VALUES: qwe
+12:11:58->  2: VALUES: 2
+12:11:58->  2: VALUES: jeff
+12:11:58->  2: VALUES: qwe
+12:11:58->  2: compareUNAME: true
+12:11:58->  2: File located: writing..CS320_server/jeff/jeff.gme
+12:11:58->  2: Closing Successful: Client Disconnected
+12:12:17->  3: User has connected sucessfully
+12:12:17->  3: HIjeff|qwe|spaceship2.gif
+12:12:17->  3: KFile located: reading..
+12:12:17->  3: VALUES: jeff
+12:12:17->  3: VALUES: qwe
+12:12:17->  3: VALUES: spaceship2.gif
+12:12:17->  3: VALUES: jeff
+12:12:17->  3: VALUES: qwe
+12:12:17->  3: compareUNAME: true
+12:13:36->  3: Closing Successful: Client Disconnected
+12:14:45-> %%%%%%%%%%%%%%%%%%%%%
+12:14:45-> %DATE: Tue May 21 12:14:45 PDT 2013%
+12:14:45-> %%PORT:	 3865  	   :%%
+12:14:45-> Initialization Complete
+12:14:56->  0: User has connected sucessfully
+12:14:56->  0: HIjeff|qwe|1
+12:14:56->  0: KFile located: reading..
+12:14:56->  0: VALUES: jeff
+12:14:56->  0: VALUES: qwe
+12:14:56->  0: VALUES: 1
+12:14:56->  0: VALUES: jeff
+12:14:56->  0: VALUES: qwe
+12:14:56->  0: compareUNAME: true
+12:14:56->  0: successful2
+12:14:56->  0: Client Connection Successful: disconnecting
+12:14:56->  0: Closing Successful: Client Disconnected
+12:15:01->  1: User has connected sucessfully
+12:15:01->  1: HIjeff|qwe|1
+12:15:01->  1: KFile located: reading..
+12:15:01->  1: VALUES: jeff
+12:15:01->  1: VALUES: qwe
+12:15:01->  1: VALUES: 1
+12:15:01->  1: VALUES: jeff
+12:15:01->  1: VALUES: qwe
+12:15:01->  1: compareUNAME: true
+12:15:01->  1: File located: writing..CS320_server/jeff/jeff.gme
+12:15:01->  1: Closing Successful: Client Disconnected
+12:15:04->  2: User has connected sucessfully
+12:15:04->  2: HIjeff|qwe|3
+12:15:04->  2: KFile located: reading..
+12:15:04->  2: VALUES: jeff
+12:15:04->  2: VALUES: qwe
+12:15:04->  2: VALUES: 3
+12:15:04->  2: VALUES: jeff
+12:15:04->  2: VALUES: qwe
+12:15:04->  2: compareUNAME: true
+12:15:04->  2: File located: writing..CS320_server/jeff/jeff.gme
+12:15:04->  2: Closing Successful: Client Disconnected
+12:15:07->  3: User has connected sucessfully
+12:15:07->  3: HIjeff|qwe|spaceship3.gif
+12:15:07->  3: KFile located: reading..
+12:15:07->  3: VALUES: jeff
+12:15:07->  3: VALUES: qwe
+12:15:07->  3: VALUES: spaceship3.gif
+12:15:07->  3: VALUES: jeff
+12:15:07->  3: VALUES: qwe
+12:15:07->  3: compareUNAME: true
+12:15:07->  3: KFile located: reading..
+12:15:07->  3: Client connection successful: transferring him to game client
+12:15:07->  3: Game not found: creating...
+12:15:08->  5: gave string to userJA|34.56|44.55|54.32|1
+12:15:28->  5: Could not update Thread!
+12:15:28->  5: Could not update User! Broken pipe
+12:15:28->  5: Closing...
+12:15:28->  5: Could not read from user: Connection reset
+12:15:28->  5: File located: writing..CS320_server/jeff/MyStats.gme
+12:15:28->  3: Closing Successful: Client Disconnected

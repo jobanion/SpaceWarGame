@@ -193,7 +193,7 @@ public class Secretary extends Fileio{
 			 * check preferences for user
 			 */
 			System.out.println("Got through Step1");
-			read = comparePreferences(3);
+			read = comparePreferences(0);
 
 			try{
 				if (read){
@@ -324,19 +324,19 @@ public class Secretary extends Fileio{
 		/*
 		 * Check for similarities (if the same, then return true to user)
 		 */
-		//		Printu("VALUES: " + values[0]);
-		//		Printu("VALUES: " + values[1]);
-		//		Printu("VALUES: " + values[2]);
-		//		Printu("VALUES: " + mif.myName);
-		//		Printu("VALUES: " + mif.myPassword);
-		//		Printu("compareUNAME: " + values[0].equals(mif.myName));
+				Printu("VALUES: " + values[0]);
+				Printu("VALUES: " + values[1]);
+				Printu("VALUES: " + values[2]);
+				Printu("VALUES: " + mif.myName);
+				Printu("VALUES: " + mif.myPassword);
+				Printu("compareUNAME: " + values[0].equals(mif.myName));
 
 		if (read && repeat){
 			if (values[0].equals(mif.myName) && values[1].equals(mif.myPassword)){
 				read = true;
 				if (ix == 3){
-					//mif.shipNum = Integer.parseInt(values[2]); // fix these!!
-					//writeFile(ServerMAIN.resources + ServerMAIN.slash + values[0] + ServerMAIN.slash + values[0] + ServerMAIN.ext, mif.Encode());
+					mif.shipNum = Integer.parseInt(values[2]); // fix these!!
+					writeFile(ServerMAIN.resources + ServerMAIN.slash + values[0] + ServerMAIN.slash + values[0] + ServerMAIN.ext, mif.Encode());
 				}
 			} else {
 				read = false;
