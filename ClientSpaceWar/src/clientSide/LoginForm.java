@@ -176,7 +176,7 @@ public class LoginForm extends JDialog implements ServerTALK{
 			Main.user.ups.setPass(passWd);
 			Main.user.setShipName("spaceship" + parsed[2] + ".gif");
 			Menu.accepted = true;
-			SpaceGame.shipName1 = Main.user.getShipName();
+			MultiplayerGame.shipName1 = Main.user.getShipName();
 			//Main.user.setShipName(Menu.Pship);
 			Menu.shown = true;
 			//System.out.println("spaceship" + parsed[2] + ".gif");

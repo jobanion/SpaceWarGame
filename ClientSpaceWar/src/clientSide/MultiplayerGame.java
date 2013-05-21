@@ -15,7 +15,7 @@ import org.newdawn.slick.state.*;
 // the right(d) and shoot(f) on player2 cancel each other out as well
 
 @SuppressWarnings("deprecation")
-public class SpaceGame extends BasicGameState implements ServerTALK{
+public class MultiplayerGame extends BasicGameState implements ServerTALK{
 
 	String backgroundImage = "SpaceWormHole.jpg";
 
@@ -51,7 +51,7 @@ public class SpaceGame extends BasicGameState implements ServerTALK{
 	static boolean init = false, playerDead = false;
 	public String respawn = "Respawn (R)", resume = "Resume (R)", mainMenu = "Main Menu (M)", exit = "Quit Game (Q)", won = "You Won!!", not = "NOT!!";
 	TrueTypeFont font4, font5;
-	public SpaceGame(int state) {
+	public MultiplayerGame(int state) {
 	}
 
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
@@ -127,7 +127,7 @@ public class SpaceGame extends BasicGameState implements ServerTALK{
 		} else {
 			kdr = killCount;
 		}
-		g.drawString("K/D Ratio: " + kdr, Main.width - 200, 70);
+		g.drawString("MP K/D Ratio: " + kdr, Main.width - 200, 70);
 	}
 
 	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
@@ -243,11 +243,6 @@ public class SpaceGame extends BasicGameState implements ServerTALK{
 			System.out.println("Error giving confirmation that user has left the game!" + ioe.getMessage());
 			ioe.printStackTrace();
 		}
-	}
-
-	// State based stuff thingie
-	public int getID(){
-		return 2;
 	}
 
 	public static void aiDoStuff(int delta) {
@@ -491,7 +486,7 @@ public class SpaceGame extends BasicGameState implements ServerTALK{
 			try{
 				System.out.println("Yay, could connect");
 				out.writeInt(num);
-				out.writeUTF(Main.user.ups.getUsername() + "|" + Main.user.ups.getPass() + "|" + SpaceGame.shipName1);
+				out.writeUTF(Main.user.ups.getUsername() + "|" + Main.user.ups.getPass() + "|" + MultiplayerGame.shipName1);
 				num = 2;
 
 				in.readBoolean();
@@ -529,5 +524,10 @@ public class SpaceGame extends BasicGameState implements ServerTALK{
 			ioe.printStackTrace();
 		}
 		// end of extra testing stuff
+	}
+
+	// State based stuff thingie
+	public int getID(){
+		return 2;
 	}
 }

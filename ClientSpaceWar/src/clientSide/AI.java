@@ -13,7 +13,7 @@ public class AI extends Ship{
 	public int leftOrRight() { // Tells the AI whice way to turn to go towards the player
 		target = nearestPlayer();
 		if(target == null) {
-			SpaceGame.playerDead = true;
+			MultiplayerGame.playerDead = true;
 			return 1;
 		}
 		float x = target.x - this.x;
@@ -38,7 +38,7 @@ public class AI extends Ship{
 	
 	public Ship nearestPlayer() {
 		Ship closest = null;
-		for(Ship current : SpaceGame.ships) {
+		for(Ship current : MultiplayerGame.ships) {
 			if(current.getClass() != AI.class) {
 				if(closest == null) {
 					closest = current;

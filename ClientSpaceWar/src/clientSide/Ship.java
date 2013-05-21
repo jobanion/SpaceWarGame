@@ -32,7 +32,7 @@ public class Ship {
 	}
 
 	public void isCollision(){
-		for(Ship current : SpaceGame.ships){
+		for(Ship current : MultiplayerGame.ships){
 			if((this.getClass() == AI.class && 
 					current.getClass() == AI.class) || 
 					(this.getClass() == OtherPlayer.class && 
@@ -43,22 +43,22 @@ public class Ship {
 			if(this.currentShot != null && this != current)
 				if (this.currentShot.x < current.x + current.ship.getWidth() && this.currentShot.x > current.x &&
 					this.currentShot.y < current.y + current.ship.getHeight() && this.currentShot.y > current.y && 
-					!current.isHit && currentShot.shotVisible != true && currentShot.hit != true) { // Split up to be more legible
+					!current.isHit && currentShot.shotVisible && !currentShot.hit) { // Split up to be more legible
 			
 					System.out.println("HIT " + current.getShipName() + "!!");
 					current.isHit = true;
 					currentShot.hit = true;
-					SpaceGame.ships.remove(current);
+					MultiplayerGame.ships.remove(current);
 					
 					if(current.getClass() == AI.class){
-						SpaceGame.count--;
-						SpaceGame.killCount++;
-						SpaceGame.aiShips.remove(current);
+						MultiplayerGame.count--;
+						MultiplayerGame.killCount++;
+						MultiplayerGame.aiShips.remove(current);
 					} else {
-						SpaceGame.deathCount++;
+						MultiplayerGame.deathCount++;
 					}
-					if(SpaceGame.aiShips.isEmpty()) {
-						SpaceGame.respawnTimer = System.currentTimeMillis();
+					if(MultiplayerGame.aiShips.isEmpty()) {
+						MultiplayerGame.respawnTimer = System.currentTimeMillis();
 					}
 					this.currentShot.hit = true;
 					this.explosionTime = System.currentTimeMillis();
@@ -68,7 +68,7 @@ public class Ship {
 
 	public void update(GameContainer gc, StateBasedGame sbg, int delta, Input input) throws SlickException{
 		if(input.isKeyDown(Input.KEY_C)){
-			SpaceGame.spawnAI();
+			MultiplayerGame.spawnAI();
 		}
 		
 		float rotates = 0.2f * delta;
@@ -110,7 +110,7 @@ public class Ship {
 			this.move(hip, this.ship.getRotation());
 			this.ship.draw(this.x, this.y);
 		} else if(System.currentTimeMillis() <= this.explosionTime + 300) {
-			SpaceGame.explosion.draw(this.x-15, this.y-10);		// I'd like to make it just show the explosion for a bit, then stop showing it
+			MultiplayerGame.explosion.draw(this.x-15, this.y-10);	
 		}
 
 		if(shotFired) {
@@ -140,18 +140,19 @@ public class Ship {
 			y -= (hip * rotR);
 			Main.user.pos.setX(x);
 			Main.user.pos.setY(y);
+			
 			// makes the sides loop
-			if(x > SpaceGame.width) {
+			if(x > MultiplayerGame.width) {
 				x = 0;
 			} else if(x < 0) {
-				x = SpaceGame.width;
+				x = MultiplayerGame.width;
 			}
 
 			// Makes the top and bottom loop
-			if(y > SpaceGame.height) {
+			if(y > MultiplayerGame.height) {
 				y = 0;
 			} else if(y < 0) {
-				y = SpaceGame.height;
+				y = MultiplayerGame.height;
 			}
 		}
 	}

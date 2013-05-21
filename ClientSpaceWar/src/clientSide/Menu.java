@@ -10,8 +10,8 @@ import org.newdawn.slick.state.*;
 public class Menu extends BasicGameState{
 
 	public static Boolean showNoLogin = false, accepted = showNoLogin, shown = showNoLogin;
-	public static String banner, playMI, customizeMI, exitMI, won = "You Won!!";
-	int middle, playMiddle, customizeMiddle, exitMiddle, boxMiddle, wonMiddle;
+	public static String banner, SPPlayMI, MPPlayMI, customizeMI, exitMI, won = "You Won!!";
+	int middle, SPPlayMiddle, MPPlayMiddle, customizeMiddle, exitMiddle, boxMiddle, wonMiddle;
 	public static int ix = 1;
 	TrueTypeFont font1, font2, font3, font4;
 	
@@ -27,11 +27,14 @@ public class Menu extends BasicGameState{
 		font3 = new TrueTypeFont(awtFont3, false);
 		Font awtFont4 = new Font("Calibre", Font.BOLD, 32);
 		font4 = new TrueTypeFont(awtFont4, false);
-		playMI = "Play Game";
+		
+		SPPlayMI = "SinglePlayer";
+		MPPlayMI = "MultiPlayer";
 		customizeMI = "Customize Ship";
 		exitMI = "Exit";
 		
-		playMiddle = Main.width/2 - font3.getWidth(playMI)/2;
+		SPPlayMiddle = Main.width/2 - font3.getWidth(SPPlayMI)/2;
+		MPPlayMiddle = Main.width/2 - font3.getWidth(MPPlayMI)/2;
 		customizeMiddle = Main.width/2 - font3.getWidth(customizeMI)/2;
 		exitMiddle = Main.width/2 - font3.getWidth(exitMI)/2;
 		boxMiddle = Main.width/2 - 150/2;
@@ -55,24 +58,34 @@ public class Menu extends BasicGameState{
 			g.drawRect(boxMiddle, (Main.height/2) - 250 + 150, 150, 26);
 			g.drawRect(boxMiddle, (Main.height/2) - 250 + 200, 150, 26);
 			g.drawRect(boxMiddle, (Main.height/2) - 250 + 250, 150, 26);
+			g.drawRect(boxMiddle, (Main.height/2) - 250 + 300, 150, 26);
 			
 			// And the coloring so we can seee which menuItem is selected
 			g.setColor(Color.green);
 			if(ix == 1) {
 				g.drawRect(boxMiddle, (Main.height/2) - 250 + 150, 150, 26);
-				font3.drawString(playMiddle, (Main.height/2) - 250 + 150, "Play Game", Color.green);
-				font3.drawString(customizeMiddle, (Main.height/2) - 250 + 200, "Customize Ship");
-				font3.drawString(exitMiddle, (Main.height/2) - 250 + 250, "Exit");
+				font3.drawString(SPPlayMiddle, (Main.height/2) - 250 + 150, SPPlayMI, Color.green);
+				font3.drawString(MPPlayMiddle, (Main.height/2) - 250 + 200, MPPlayMI);
+				font3.drawString(customizeMiddle, (Main.height/2) - 250 + 250, customizeMI);
+				font3.drawString(exitMiddle, (Main.height/2) - 250 + 300, exitMI);
 			} else if(ix == 2) {
 				g.drawRect(boxMiddle, (Main.height/2) - 250 + 200, 150, 26);
-				font3.drawString(playMiddle, (Main.height/2) - 250 + 150, "Play Game");
-				font3.drawString(customizeMiddle, (Main.height/2) - 250 + 200, "Customize Ship", Color.green);
-				font3.drawString(exitMiddle, (Main.height/2) - 250 + 250, "Exit");
+				font3.drawString(SPPlayMiddle, (Main.height/2) - 250 + 150, SPPlayMI);
+				font3.drawString(MPPlayMiddle, (Main.height/2) - 250 + 200, MPPlayMI, Color.green);
+				font3.drawString(customizeMiddle, (Main.height/2) - 250 + 250, customizeMI);
+				font3.drawString(exitMiddle, (Main.height/2) - 250 + 300, exitMI);
 			} else if(ix == 3) {
 				g.drawRect(boxMiddle, (Main.height/2) - 250 + 250, 150, 26);
-				font3.drawString(playMiddle, (Main.height/2) - 250 + 150, "Play Game");
-				font3.drawString(customizeMiddle, (Main.height/2) - 250 + 200, "Customize Ship");
-				font3.drawString(exitMiddle, (Main.height/2) - 250 + 250, "Exit", Color.green);
+				font3.drawString(SPPlayMiddle, (Main.height/2) - 250 + 150, SPPlayMI);
+				font3.drawString(MPPlayMiddle, (Main.height/2) - 250 + 200, MPPlayMI);
+				font3.drawString(customizeMiddle, (Main.height/2) - 250 + 250, customizeMI, Color.green);
+				font3.drawString(exitMiddle, (Main.height/2) - 250 + 300, exitMI);
+			} else if(ix == 4) {
+				g.drawRect(boxMiddle, (Main.height/2) - 250 + 300, 150, 26);
+				font3.drawString(SPPlayMiddle, (Main.height/2) - 250 + 150, SPPlayMI);
+				font3.drawString(MPPlayMiddle, (Main.height/2) - 250 + 200, MPPlayMI);
+				font3.drawString(customizeMiddle, (Main.height/2) - 250 + 250, customizeMI);
+				font3.drawString(exitMiddle, (Main.height/2) - 250 + 300, exitMI, Color.green);
 			}
 		}
 	}
@@ -99,28 +112,34 @@ public class Menu extends BasicGameState{
 				}
 			}
 			
-			//play game button
+			// SinglePlayer button
 			if((posX>(Main.width/2) - 75 && posX<(Main.width/2) + 75)&&(posY>(Main.height/2) + 75 && posY<(Main.height/2) + 100)) {
 				if(Mouse.isButtonDown(0)){
-					// PlayGame state
+					ix = 1;
+					sbg.init(gc);
+					sbg.enterState(4);
+				}
+			}
+
+			// MultiPlayer button
+			if((posX>(Main.width/2) - 75 && posX<(Main.width/2) + 75)&&(posY>(Main.height/2) + 25 && posY<(Main.height/2) + 50)) {
+				if(Mouse.isButtonDown(0)){
 					ix = 1;
 					sbg.init(gc);
 					sbg.enterState(2);
 				}
 			}
 
-			//customize button
-			if((posX>(Main.width/2) - 75 && posX<(Main.width/2) + 75)&&(posY>(Main.height/2) + 25 && posY<(Main.height/2) + 50)) {
+			// Customize button
+			if((posX>(Main.width/2) - 75 && posX<(Main.width/2) + 75)&&(posY>(Main.height/2) - 25 && posY<(Main.height/2))) {
 				if(Mouse.isButtonDown(0)){
-					// Customize game state
 					ix = 1;
-					Customize.oldShipName = SpaceGame.shipName1;
+					Customize.oldShipName = MultiplayerGame.shipName1;
 					sbg.enterState(1);
 				}
 			}
-
-			//exit game
-			if((posX>(Main.width/2) - 75 && posX<(Main.width/2) + 75)&&(posY>(Main.height/2) - 25 && posY<(Main.height/2))) {
+			
+			if((posX>(Main.width/2) - 75 && posX<(Main.width/2) + 75)&&(posY>(Main.height/2) - 75 && posY<(Main.height/2) - 50)) {
 				if(Mouse.isButtonDown(0)){
 					exit();
 				}
@@ -130,8 +149,8 @@ public class Menu extends BasicGameState{
 			if(input.isKeyPressed(Input.KEY_UP)) {
 				ix--;
 				if(ix < 1) {
-					ix = 3;
-				} else if(ix > 3) {
+					ix = 4;
+				} else if(ix > 4) {
 					ix = 1;
 				}
 			}
@@ -140,8 +159,8 @@ public class Menu extends BasicGameState{
 			if(input.isKeyPressed(Input.KEY_DOWN)) {
 				ix++;
 				if(ix < 1) {
-					ix = 3;
-				} else if(ix > 3) {
+					ix = 4;
+				} else if(ix > 4) {
 					ix = 1;
 				}
 			}
@@ -154,9 +173,13 @@ public class Menu extends BasicGameState{
 					sbg.enterState(2);
 				} else if (ix == 2) {
 					ix = 1;
-					Customize.oldShipName = SpaceGame.shipName1;
-					sbg.enterState(1);
+					sbg.init(gc);
+					sbg.enterState(4);
 				} else if (ix == 3) {
+					ix = 1;
+					Customize.oldShipName = MultiplayerGame.shipName1;
+					sbg.enterState(1);
+				} else if (ix == 4) {
 					exit();
 				}
 			}

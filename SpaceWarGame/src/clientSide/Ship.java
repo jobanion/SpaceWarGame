@@ -34,11 +34,15 @@ public class Ship {
 			if(this.getClass() == AI.class && current.getClass() == AI.class)
 				continue;
 			if(this.currentShot != null && this != current) {
-				if (this.currentShot.x < current.x + current.ship.getWidth() && this.currentShot.x > current.x && this.currentShot.y < current.y + current.ship.getHeight() && this.currentShot.y > current.y && !current.isHit) { 
+				if (this.currentShot.x < current.x + current.ship.getWidth() && this.currentShot.x > current.x && 
+					this.currentShot.y < current.y + current.ship.getHeight() && this.currentShot.y > current.y && 
+					!current.isHit && !currentShot.hit && currentShot.shotVisible) { 
+					
 					System.out.println("HIT " + current.getShipName() + "!!");
 					current.isHit = true;
 					SpaceGame.ships.remove(current);
 					SpaceGame.deadShips.add(current);
+					
 					if(current.getClass() == AI.class){
 						SpaceGame.count--;
 						SpaceGame.killCount++;

@@ -9,8 +9,6 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Customize extends BasicGameState implements ServerTALK{
 	
@@ -254,7 +252,10 @@ public class Customize extends BasicGameState implements ServerTALK{
 			apply();
 			sbg.enterState(0);
 		}
-		
+		if(input.isKeyPressed(Input.KEY_ESCAPE)) {
+			SpaceGame.shipName1 = oldShipName;
+			sbg.enterState(0);
+		}
 	}
 	
 	public void apply() {
@@ -273,20 +274,18 @@ public class Customize extends BasicGameState implements ServerTALK{
 
 	@Override
 	public String RecieveInfo() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public String SendInfo(String str, int num) {
-		boolean checkval = false;
 		boolean setup = SetUpConnection();
 		if (setup){
 			try{
 				out.writeInt(num);
 				//System.out.println("OO" + str);
 				out.writeUTF(str);
-				checkval = in.readBoolean();
+				in.readBoolean();
 				CloseConnection();
 			} catch(Exception e){
 				System.out.println("Cannot set up connection");

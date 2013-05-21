@@ -28,24 +28,24 @@ public class Shot {
 		
 		if(shipNum != 3) {
 			// makes the sides loop
-			if(x > SpaceGame.width) {
+			if(x > MultiplayerGame.width) {
 				x = 0;
 			} else if(x < 0) {
-				x = SpaceGame.width;
+				x = MultiplayerGame.width;
 			}
 
 			// Makes the top and bottom loop
-			if(y > SpaceGame.height) {
+			if(y > MultiplayerGame.height) {
 				y = 0;
 			} else if(y < 0) {
-				y = SpaceGame.height;
+				y = MultiplayerGame.height;
 			}
 		}
 		isCollision();
 	}
 	
 	public void isCollision() {
-		for(Ship current : SpaceGame.ships){
+		for(Ship current : MultiplayerGame.ships){
 			current.isCollision();
 		}
 	}
