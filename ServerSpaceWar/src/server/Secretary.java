@@ -309,7 +309,7 @@ public class Secretary extends Fileio{
 			read = false;
 		}
 		//values = fromuser.split("\\|");
-		//Printu("HI" + values[0]);
+		Printu("HI" + fromuser);
 		/*
 		 * update current user info on file
 		 */

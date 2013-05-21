@@ -62,7 +62,7 @@ public class ServerMAIN
 		}
 
 		// we then set up the log file
-		ix = findFile(resources + "\\log.sfg");
+		ix = findFile(resources + slash + "log.sfg");
 		if (ix == 0){								// setting up log file (none found)
 			try{
 				if(!(new File(resources + slash + "log.sfg").createNewFile()))
