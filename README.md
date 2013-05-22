@@ -1,4 +1,4 @@
 SpaceWarGame
 ============
 
-Simple multiplayer real-time top-down shooter
+Simple multiplayer real-time top-down shooter (In progress)
