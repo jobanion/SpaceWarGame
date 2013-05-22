@@ -170,11 +170,11 @@ public class Menu extends BasicGameState{
 				if(ix == 1) {
 					ix = 1;
 					sbg.init(gc);
-					sbg.enterState(2);
+					sbg.enterState(4);
 				} else if (ix == 2) {
 					ix = 1;
 					sbg.init(gc);
-					sbg.enterState(4);
+					sbg.enterState(2);
 				} else if (ix == 3) {
 					ix = 1;
 					Customize.oldShipName = MultiplayerGame.shipName1;

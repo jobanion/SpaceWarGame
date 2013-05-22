@@ -120,14 +120,14 @@ public class SingleplayerGame extends BasicGameState implements ServerTALK{
 
 		// update player ship
 		for(Ship current : ships){
-			if(current.getClass() != AI.class && current.getClass() != OtherPlayer.class)
+			if(current.getClass() != AI.class) {
 				current.update(gc, sbg, delta, input);
+			}
 		}		
 
 		// Escape key/ key to open the menus in game
 		if(input.isKeyDown(Input.KEY_ESCAPE)){
 			menu = true;
-			gc.setPaused(true);
 		}      
 
 		if(playerDead==true){
@@ -248,11 +248,6 @@ public class SingleplayerGame extends BasicGameState implements ServerTALK{
 		}
 	}
 
-	public String packShip(){
-		return Main.user.ups.getUsername() + "|" +  Main.user.pos.Encode() + "|" + Main.user.getShipName();
-	}
-
-
 	public static void spawnAI() {
 		Random gen1 = new Random(), gen2 = new Random();
 		AI ai;
@@ -269,6 +264,7 @@ public class SingleplayerGame extends BasicGameState implements ServerTALK{
 	public void initial() throws SlickException{
 		pShip1 = new Ship("player", 400, 300, shipName1); 
 		ships.add(pShip1);
+		initial = false; 	// set boolean variable = false, so it does not repeat initialization, and reset to true when go to main
 	}
 
 	// State based stuff thingie
