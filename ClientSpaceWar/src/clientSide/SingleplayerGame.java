@@ -1,6 +1,9 @@
 package clientSide;
 
 import java.awt.Font;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.net.Socket;
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -10,6 +13,7 @@ import org.newdawn.slick.state.*;
 // the left(left) and shoot(space) cancel each other out for the player1 
 // the right(d) and shoot(f) on player2 cancel each other out as well
 
+
 @SuppressWarnings("deprecation")
 public class SingleplayerGame extends BasicGameState implements ServerTALK{
 
@@ -18,6 +22,14 @@ public class SingleplayerGame extends BasicGameState implements ServerTALK{
 	public static List<Ship> ships = new CopyOnWriteArrayList<Ship>();
 	public static List<AI> aiShips = new CopyOnWriteArrayList<AI>();
 
+	// Server communication stuff
+	//int port = 3865;
+	public static Socket client;
+	public static DataOutputStream out;
+	public static DataInputStream in;
+	boolean canTalk;
+	
+	public static float x, y, rotation;
 	//The ships (and post-initialization stuff)
 	Ship pShip1;// = new Ship("player", 400, 300, shipName1), 
 	Ship pShip2;// = new Ship("player", 600, 300, shipName1);
@@ -27,6 +39,7 @@ public class SingleplayerGame extends BasicGameState implements ServerTALK{
 	static Shot currentShot1 = null, currentShot2 = null, aiShot = null;
 	static boolean menu = false, shotFired1 = false, shotFired2 = false, shotFiredAI = false, exploded1 = false, exploded2 = false;
 	public static String shipName1 = "spaceship1.gif", shipName2 = "spaceship1.gif";
+	public static String shipname, myName;
 	public static long respawnTimer = 0;
 	public static int width = 800, height = 500, d = 0, killCount = 0, deathCount = 0;	
 	public static float kdr;
@@ -63,6 +76,7 @@ public class SingleplayerGame extends BasicGameState implements ServerTALK{
 
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
 		background.draw(0, 0);
+		
 		for(Ship current : ships){
 			current.render(gc, sbg, g);
 		}
@@ -84,11 +98,6 @@ public class SingleplayerGame extends BasicGameState implements ServerTALK{
 				g.clear();
 			}
 		}	
-
-		//		if(aiShips.isEmpty() && System.currentTimeMillis() <= respawnTimer + 7000) {
-		//			font4.drawString(wonMiddle, Main.height/2, won, Color.green);
-		//		} else if(System.currentTimeMillis() <= respawnTimer + 8000)
-		//			font5.drawString(notMiddle, Main.height/2, not, Color.red);
 
 		g.drawString("Enemies Left: " + count, Main.width - 200, 10);
 		g.drawString("Kills: " + killCount, Main.width - 200, 30);
@@ -145,11 +154,6 @@ public class SingleplayerGame extends BasicGameState implements ServerTALK{
 				reset();
 				initial = true; 				// so it will repeat when you get back on (re-initialize with new ship)
 				sbg.enterState(0);
-				try{
-					Thread.sleep(250);
-				}catch(InterruptedException e){
-					e.printStackTrace();
-				}
 			}
 
 			if(input.isKeyDown(Input.KEY_Q)){  // Closes the program
@@ -218,7 +222,6 @@ public class SingleplayerGame extends BasicGameState implements ServerTALK{
 
 				e.printStackTrace();
 			}
-
 		}
 		numOfAI += 2;
 	}
@@ -247,7 +250,8 @@ public class SingleplayerGame extends BasicGameState implements ServerTALK{
 			current.rotate(current.leftOrRight() * 2f, current.ship);
 		}
 	}
-
+	
+	
 	public static void spawnAI() {
 		Random gen1 = new Random(), gen2 = new Random();
 		AI ai;

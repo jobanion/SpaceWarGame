@@ -286,7 +286,6 @@ public class SpaceGame extends BasicGameState implements ServerTALK{
 				
 				e.printStackTrace();
 			}
-
 		}
 		numOfAI += 2;
 	}
