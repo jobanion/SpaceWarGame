@@ -1,9 +1,7 @@
+
 package clientSide;
 
 import java.awt.Font;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.net.Socket;
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -15,52 +13,46 @@ import org.newdawn.slick.state.*;
 
 
 @SuppressWarnings("deprecation")
-public class SingleplayerGame extends BasicGameState implements ServerTALK{
+public class SingleplayerGame extends BasicGameState {
 
 	String backgroundImage = "SpaceWormHole.jpg";
+	String explosionImage = "explosion.gif";
+	public static String shipName = "spaceship1.gif", shipName2 = "spaceship1.gif";
+	public static Image ship1 = null, ship2 = null, aiShip = null, background = null, shot = null, explosion = null;
 
-	public static List<Ship> ships = new CopyOnWriteArrayList<Ship>();
-	public static List<AI> aiShips = new CopyOnWriteArrayList<AI>();
-
-	// Server communication stuff
-	//int port = 3865;
-	public static Socket client;
-	public static DataOutputStream out;
-	public static DataInputStream in;
-	boolean canTalk;
+	public static List<Ship> ships = new CopyOnWriteArrayList<Ship>(); 	// List of all ships
+	public static List<AI> aiShips = new CopyOnWriteArrayList<AI>(); 	// list of all AI ships
 	
-	public static float x, y, rotation;
 	//The ships (and post-initialization stuff)
 	Ship pShip1;// = new Ship("player", 400, 300, shipName1), 
 	Ship pShip2;// = new Ship("player", 600, 300, shipName1);
 	private boolean initial = true;
 
-	public static Image ship1 = null, ship2 = null, aiShip = null, background = null, shot = null, explosion = null;
-	static Shot currentShot1 = null, currentShot2 = null, aiShot = null;
-	static boolean menu = false, shotFired1 = false, shotFired2 = false, shotFiredAI = false, exploded1 = false, exploded2 = false;
-	public static String shipName1 = "spaceship1.gif", shipName2 = "spaceship1.gif";
-	public static String shipname, myName;
+	public static Shot currentShot1 = null, currentShot2 = null, aiShot = null;
+	public static boolean menu = false, shotFired1 = false, shotFired2 = false, shotFiredAI = false, exploded1 = false, exploded2 = false;
 	public static long respawnTimer = 0;
 	public static int width = 800, height = 500, d = 0, killCount = 0, deathCount = 0;	
 	public static float kdr;
 	public static int count = 0, numOfAI = 1, wonMiddle, notMiddle;
-	static boolean init = false, playerDead = false;
+	public static boolean init = false, playerDead = false;
 	public String respawn = "Respawn (R)", resume = "Resume (R)", mainMenu = "Main Menu (M)", exit = "Quit Game (Q)", won = "You Won!!", not = "NOT!!";
+	
 	TrueTypeFont font4, font5;
+	
 	public SingleplayerGame(int state) {
 	}
 
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
 		if(!init){
 			if (!initial){
-				pShip1 = new Ship("player", 600, 300, shipName1);
+				pShip1 = new Ship("player", 600, 300, shipName);
 
 				ships.add(pShip1);
 				respawnAI();
 			}
 
 			background = new Image("res/" + backgroundImage);
-			explosion = new Image("res/explosion.gif");
+			explosion = new Image("res/" + explosionImage);
 			width = gc.getWidth();
 			height = gc.getHeight();
 			init = true;
@@ -68,6 +60,7 @@ public class SingleplayerGame extends BasicGameState implements ServerTALK{
 			Font awtFont4 = new Font("Calibre", Font.BOLD, 32);
 			font4 = new TrueTypeFont(awtFont4, false);
 			wonMiddle = Main.width/2 - font4.getWidth(won);
+			
 			Font awtFont5 = new Font("Calibre", Font.BOLD, 64);
 			font5 = new TrueTypeFont(awtFont5, false);
 			notMiddle = Main.width/2 - font5.getWidth(not);
@@ -82,18 +75,18 @@ public class SingleplayerGame extends BasicGameState implements ServerTALK{
 		}
 
 		if(playerDead == true) {
-			g.drawString(respawn,    (Main.width/2) - respawn.length(), 200);
-			g.drawString(mainMenu, (Main.width/2) - mainMenu.length(), 250);
-			g.drawString(exit, (Main.width/2) - exit.length(), 300);
+			g.drawString(respawn,  	(Main.width/2) - respawn.length(), 200);
+			g.drawString(mainMenu, 	(Main.width/2) - mainMenu.length(), 250);
+			g.drawString(exit, 		(Main.width/2) - exit.length(), 300);
 			if(playerDead == false){
 				g.clear();
 			}
 		}
 
 		if(menu == true && playerDead != true){
-			g.drawString(resume,    (Main.width/2) - resume.length(), 200);
-			g.drawString(mainMenu, (Main.width/2) - mainMenu.length(), 250);
-			g.drawString(exit, (Main.width/2) - exit.length(), 300);
+			g.drawString(resume,    (Main.width/2) - resume.length(), 	200);
+			g.drawString(mainMenu, 	(Main.width/2) - mainMenu.length(), 250);
+			g.drawString(exit, 		(Main.width/2) - exit.length(), 	300);
 			if(menu == false){
 				g.clear();
 			}
@@ -134,7 +127,7 @@ public class SingleplayerGame extends BasicGameState implements ServerTALK{
 			}
 		}		
 
-		// Escape key/ key to open the menus in game
+		// Escape key to open the menus in game
 		if(input.isKeyDown(Input.KEY_ESCAPE)){
 			menu = true;
 		}      
@@ -185,10 +178,8 @@ public class SingleplayerGame extends BasicGameState implements ServerTALK{
 
 	private static void respawnPlayer() {
 		Random gen1 = new Random(), gen2 = new Random();
-		Ship ship;
 		try {
-			ship = new Ship(Main.user.ups.getUsername(), gen1.nextInt(Main.width), gen2.nextInt(Main.height), shipName1);
-			ships.add(ship);
+			ships.add(new Ship(Main.user.ups.getUsername(), gen1.nextInt(Main.width), gen2.nextInt(Main.height), shipName));
 		} catch (SlickException e) {
 		}
 	}
@@ -266,7 +257,7 @@ public class SingleplayerGame extends BasicGameState implements ServerTALK{
 	}
 
 	public void initial() throws SlickException{
-		pShip1 = new Ship("player", 400, 300, shipName1); 
+		pShip1 = new Ship(Main.user.ups.getUsername(), 400, 300, shipName); 
 		ships.add(pShip1);
 		initial = false; 	// set boolean variable = false, so it does not repeat initialization, and reset to true when go to main
 	}
@@ -275,11 +266,4 @@ public class SingleplayerGame extends BasicGameState implements ServerTALK{
 	public int getID(){
 		return 4;
 	}
-
-	// Needed from superclass
-	public String SendInfo(String str, int num) { return null; }
-	public String RecieveInfo() { return null; }
-	public boolean SetUpConnection() { return false; }
-	public boolean CloseConnection() { return false; }
-	public void gameTalk() { }
 }

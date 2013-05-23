@@ -219,10 +219,8 @@ public class MultiplayerGame extends BasicGameState implements ServerTALK{
 
 	private static void respawnPlayer() {
 		Random gen1 = new Random(), gen2 = new Random();
-		Ship ship;
 		try {
-			ship = new Ship(Main.user.ups.getUsername(), gen1.nextInt(Main.width), gen2.nextInt(Main.height), shipName1);
-			ships.add(ship);
+			ships.add(new Ship(Main.user.ups.getUsername(), gen1.nextInt(Main.width), gen2.nextInt(Main.height), shipName1));
 		} catch (SlickException e) {
 		}
 	}
@@ -459,7 +457,6 @@ public class MultiplayerGame extends BasicGameState implements ServerTALK{
 			aiShips.add(ai);
 			count++;
 		} catch (SlickException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

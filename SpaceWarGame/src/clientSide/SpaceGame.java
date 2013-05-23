@@ -81,6 +81,7 @@ public class SpaceGame extends BasicGameState implements ServerTALK{
 			Font awtFont4 = new Font("Calibre", Font.BOLD, 32);
 			font4 = new TrueTypeFont(awtFont4, false);
 			wonMiddle = Main.width/2 - font4.getWidth(won);
+			
 			Font awtFont5 = new Font("Calibre", Font.BOLD, 64);
 			font5 = new TrueTypeFont(awtFont5, false);
 			notMiddle = Main.width/2 - font5.getWidth(not);

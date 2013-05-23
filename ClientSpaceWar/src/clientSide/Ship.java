@@ -43,7 +43,7 @@ public class Ship {
 			if(this.currentShot != null && this != current)
 				if (this.currentShot.x < current.x + current.ship.getWidth() && this.currentShot.x > current.x &&
 					this.currentShot.y < current.y + current.ship.getHeight() && this.currentShot.y > current.y && 
-					!current.isHit && currentShot.shotVisible && !currentShot.hit) { // Split up to be more legible
+					!current.isHit && currentShot.shotVisible) { // Split up to be more legible
 			
 					System.out.println("HIT " + current.getShipName() + "!!");
 					current.isHit = true;
