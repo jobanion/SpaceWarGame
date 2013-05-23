@@ -40,6 +40,7 @@ public class Ship {
 				
 				continue;
 			}
+			
 			if(this.currentShot != null && this != current)
 				if (this.currentShot.x < current.x + current.ship.getWidth() && this.currentShot.x > current.x &&
 					this.currentShot.y < current.y + current.ship.getHeight() && this.currentShot.y > current.y && 
