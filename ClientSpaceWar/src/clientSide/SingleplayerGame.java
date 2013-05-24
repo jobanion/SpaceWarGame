@@ -21,7 +21,7 @@ public class SingleplayerGame extends BasicGameState {
 	public static Image ship1 = null, aiShip = null, background = null, shot = null, explosion = null;
 
 	public static List<Ship> ships = new CopyOnWriteArrayList<Ship>(); 	// List of all ships
-	public static List<AI> aiShips = new CopyOnWriteArrayList<AI>(); 	// list of all AI ships
+	public static List<AIMP> aiShips = new CopyOnWriteArrayList<AIMP>(); 	// list of all AI ships
 	
 	//The ships (and post-initialization stuff)
 	Ship playerShip;// = new Ship("player", 400, 300, shipName1), 
@@ -118,7 +118,7 @@ public class SingleplayerGame extends BasicGameState {
 
 		// update player ship
 		for(Ship current : ships){
-			if(current.getClass() != AI.class) {
+			if(current.getClass() != AIMP.class) {
 				current.update(gc, sbg, delta, input);
 			}
 		}		
@@ -200,9 +200,9 @@ public class SingleplayerGame extends BasicGameState {
 	static void respawnAI() {
 		for(int i = 0; i < numOfAI; i++){
 			Random gen1 = new Random(), gen2 = new Random();
-			AI ai;
+			AIMP ai;
 			try {
-				ai = new AI(gen1.nextInt(Main.width), gen2.nextInt(Main.height));
+				ai = new AIMP(gen1.nextInt(Main.width), gen2.nextInt(Main.height));
 				ships.add(ai);
 				aiShips.add(ai);
 				count++;
@@ -214,7 +214,7 @@ public class SingleplayerGame extends BasicGameState {
 	}
 	
 	private static void aiShot() {
-		for(AI current : aiShips ){
+		for(AIMP current : aiShips ){
 			if(!current.isHit && current.target != null){
 				if(!current.shotFired) {
 					current.currentShotSP = new ShotSP(1, current.x+10, current.y+5, current.ship.getRotation(), 3);
@@ -227,13 +227,13 @@ public class SingleplayerGame extends BasicGameState {
 	}
 
 	private static void aiMove(int delta) {
-		for(AI current : aiShips ){
+		for(AIMP current : aiShips ){
 			current.move(delta * 0.3f, current.ship.getRotation());
 		}
 	}
 
 	private static void aiRotate() {
-		for(AI current : aiShips ){
+		for(AIMP current : aiShips ){
 			current.rotate(current.leftOrRight() * 2f, current.ship);
 		}
 	}

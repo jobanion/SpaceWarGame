@@ -1,11 +1,12 @@
+// AI for the multiplayer part
 package clientSide;
 
 import org.newdawn.slick.SlickException;
 
-public class AI extends Ship{
+public class AIMP extends Ship{
 	Ship target;
 	
-	public AI(float x, float y) throws SlickException {
+	public AIMP(float x, float y) throws SlickException {
 		super("AI", x, y, "EnemyShip.gif");
 		this.isHit = false;
 	}
@@ -39,7 +40,7 @@ public class AI extends Ship{
 	public Ship nearestPlayer() {
 		Ship closest = null;
 		for(Ship current : MultiplayerGame.ships) {
-			if(current.getClass() != AI.class) {
+			if(current.getClass() != AIMP.class) {
 				if(closest == null) {
 					closest = current;
 				} else {
@@ -52,18 +53,9 @@ public class AI extends Ship{
 		return closest;
 	}
 	
-	public float distanceBetween( Point A, Point B) {
+	public float distanceBetween(Point A, Point B) {
         float dX = A.x - B.x;
         float dY = A.y - B.y;
 		return (float) Math.sqrt(dX*dX + dY*dY);
 	}
-}
-
-class Point {
-	float x, y;
-	public Point(float x, float y) 	{ this.x = x; this.y = y; }
-	public void setX(float x)	  	{ this.x = x; }
-	public void setY(float y)		{ this.y = y; }
-	public float getX()				{ return this.x; }
-	public float getY()				{ return this.y; }
 }

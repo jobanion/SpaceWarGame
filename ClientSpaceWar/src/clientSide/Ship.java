@@ -34,8 +34,8 @@ public class Ship {
 
 	public void isSPCollision(){
 		for(Ship current : SingleplayerGame.ships){
-			if((this.getClass() == AI.class && 
-					current.getClass() == AI.class) || 
+			if((this.getClass() == AIMP.class && 
+					current.getClass() == AIMP.class) || 
 					(this.getClass() == OtherPlayer.class && 
 					current.getClass() == OtherPlayer.class)) { // Split up to be more legible
 
@@ -52,7 +52,7 @@ public class Ship {
 					currentShotSP.hit = true;
 					SingleplayerGame.ships.remove(current);
 
-					if(current.getClass() == AI.class){
+					if(current.getClass() == AIMP.class){
 						SingleplayerGame.count--;
 						SingleplayerGame.killCount++;
 						SingleplayerGame.aiShips.remove(current);
@@ -71,7 +71,7 @@ public class Ship {
 
 	public void isMPCollision() {
 		for(Ship current : MultiplayerGame.ships){
-			if((this.getClass() == AI.class && current.getClass() == AI.class) || 
+			if((this.getClass() == AIMP.class && current.getClass() == AIMP.class) || 
 					(this.getClass() == OtherPlayer.class && current.getClass() == OtherPlayer.class)) { 
 				continue;
 			}
@@ -86,7 +86,7 @@ public class Ship {
 					currentShotMP.hit = true;
 					MultiplayerGame.ships.remove(current);
 
-					if(current.getClass() == AI.class){
+					if(current.getClass() == AIMP.class){
 						MultiplayerGame.count--;
 						MultiplayerGame.killCount++;
 						MultiplayerGame.aiShips.remove(current);

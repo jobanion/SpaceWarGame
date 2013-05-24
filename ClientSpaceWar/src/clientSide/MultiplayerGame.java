@@ -22,7 +22,7 @@ public class MultiplayerGame extends BasicGameState implements ServerTALK{
 
 	public static List<Ship> ships = new CopyOnWriteArrayList<Ship>();
 	public static List<OtherPlayer> others = new CopyOnWriteArrayList<>();
-	public static List<AI> aiShips = new CopyOnWriteArrayList<AI>();
+	public static List<AIMP> aiShips = new CopyOnWriteArrayList<AIMP>();
 
 	// Server communication stuff
 	//int port = 3865;
@@ -150,7 +150,7 @@ public class MultiplayerGame extends BasicGameState implements ServerTALK{
 
 		// update player ship
 		for(Ship current : ships){
-			if(current.getClass() != AI.class && current.getClass() != OtherPlayer.class)
+			if(current.getClass() != AIMP.class && current.getClass() != OtherPlayer.class)
 				current.update(gc, sbg, delta, input);
 		}		
 
@@ -254,9 +254,9 @@ public class MultiplayerGame extends BasicGameState implements ServerTALK{
 	static void respawnAI() {
 		for(int i = 0; i < numOfAI; i++){
 			Random gen1 = new Random(), gen2 = new Random();
-			AI ai;
+			AIMP ai;
 			try {
-				ai = new AI(gen1.nextInt(Main.width), gen2.nextInt(Main.height));
+				ai = new AIMP(gen1.nextInt(Main.width), gen2.nextInt(Main.height));
 				ships.add(ai);
 				aiShips.add(ai);
 				count++;
@@ -270,7 +270,7 @@ public class MultiplayerGame extends BasicGameState implements ServerTALK{
 	}
 
 	private static void aiShot() {
-		for(AI current : aiShips ){
+		for(AIMP current : aiShips ){
 			if(!current.isHit && current.target != null){
 				if(!current.shotFired) {
 					current.currentShotMP = new ShotMP(1, current.x+10, current.y+5, current.ship.getRotation(), 3);
@@ -283,13 +283,13 @@ public class MultiplayerGame extends BasicGameState implements ServerTALK{
 	}
 
 	private static void aiMove(int delta) {
-		for(AI current : aiShips ){
+		for(AIMP current : aiShips ){
 			current.move(delta * 0.3f, current.ship.getRotation());
 		}
 	}
 
 	private static void aiRotate() {
-		for(AI current : aiShips ){
+		for(AIMP current : aiShips ){
 			current.rotate(current.leftOrRight() * 2f, current.ship);
 		}
 	}
