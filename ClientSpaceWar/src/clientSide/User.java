@@ -1,8 +1,8 @@
 package clientSide;
 
 public class User{
-	public UInfo ups;
-	public PosUpdate pos;
+	public UInfo ups; // ups = UserPasswordShipnum
+	public PosUpdate pos; // pos = position
 	public MyStats stats; 	// Need to make this encrypted somehow
 	private String shipName = "spaceship1.gif";
 	//private Ship myShip;

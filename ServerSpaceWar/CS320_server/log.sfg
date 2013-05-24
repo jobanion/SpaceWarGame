@@ -1005,3 +1005,88 @@
 19:32:12->  0: successful6
 19:32:12->  0: Client Connection Successful: disconnecting
 19:32:12->  0: Closing Successful: Client Disconnected
+12:55:14-> %%%%%%%%%%%%%%%%%%%%%
+12:55:14-> %DATE: Thu May 23 12:55:14 PDT 2013%
+12:55:14-> %%PORT:	 3865  	   :%%
+12:55:14-> Initialization Complete
+12:55:20->  0: User has connected sucessfully
+12:55:20->  0: HIjeff|qwe|1
+12:55:20->  0: KFile located: reading..
+12:55:20->  0: VALUES: jeff
+12:55:20->  0: VALUES: qwe
+12:55:20->  0: VALUES: 1
+12:55:20->  0: VALUES: jeff
+12:55:20->  0: VALUES: qwe
+12:55:20->  0: compareUNAME: true
+12:55:20->  0: successful6
+12:55:21->  0: Client Connection Successful: disconnecting
+12:55:21->  0: Closing Successful: Client Disconnected
+12:55:38->  1: User has connected sucessfully
+12:55:38->  1: HIjeff|qwe|spaceship6.gif
+12:55:38->  1: KFile located: reading..
+12:55:38->  1: VALUES: jeff
+12:55:38->  1: VALUES: qwe
+12:55:38->  1: VALUES: spaceship6.gif
+12:55:38->  1: VALUES: jeff
+12:55:38->  1: VALUES: qwe
+12:55:38->  1: compareUNAME: true
+12:55:38->  1: KFile located: reading..
+12:55:38->  1: Client connection successful: transferring him to game client
+12:55:38->  1: Game not found: creating...
+12:55:39->  3: gave string to userJA|34.56|44.55|54.32|1
+12:55:42->  3: Could not update Thread!
+12:55:42->  3: Could not update User! Software caused connection abort: socket write error
+12:55:42->  3: Closing...
+12:55:42->  3: Could not read from user: Software caused connection abort: recv failed
+12:55:42->  3: File located: writing..CS320_server\jeff\MyStats.gme
+12:55:42->  1: Closing Successful: Client Disconnected
+12:55:45->  4: User has connected sucessfully
+12:55:45->  4: HIjeff|qwe|spaceship6.gif
+12:55:45->  4: KFile located: reading..
+12:55:45->  4: VALUES: jeff
+12:55:45->  4: VALUES: qwe
+12:55:45->  4: VALUES: spaceship6.gif
+12:55:45->  4: VALUES: jeff
+12:55:45->  4: VALUES: qwe
+12:55:45->  4: compareUNAME: true
+12:55:45->  4: KFile located: reading..
+12:55:45->  4: Client connection successful: transferring him to game client
+12:55:45->  4: Found game: connecting...
+12:55:46->  5: gave string to userJA|34.56|44.55|54.32|1
+12:56:08->  5: Could not update Thread!
+12:56:08->  5: Could not update User! Connection reset by peer: socket write error
+12:56:08->  5: Closing...
+12:56:08->  5: Could not read from user: Connection reset
+12:56:08->  5: File located: writing..CS320_server\jeff\MyStats.gme
+12:56:08->  4: Closing Successful: Client Disconnected
+12:56:49->  6: User has connected sucessfully
+12:56:49->  6: HIjeff|qwe|1
+12:56:49->  6: KFile located: reading..
+12:56:49->  6: VALUES: jeff
+12:56:49->  6: VALUES: qwe
+12:56:49->  6: VALUES: 1
+12:56:49->  6: VALUES: jeff
+12:56:49->  6: VALUES: qwe
+12:56:49->  6: compareUNAME: true
+12:56:49->  6: successful6
+12:56:49->  6: Client Connection Successful: disconnecting
+12:56:49->  6: Closing Successful: Client Disconnected
+12:56:52->  7: User has connected sucessfully
+12:56:52->  7: HIjeff|qwe|spaceship6.gif
+12:56:52->  7: KFile located: reading..
+12:56:52->  7: VALUES: jeff
+12:56:52->  7: VALUES: qwe
+12:56:52->  7: VALUES: spaceship6.gif
+12:56:52->  7: VALUES: jeff
+12:56:52->  7: VALUES: qwe
+12:56:52->  7: compareUNAME: true
+12:56:52->  7: KFile located: reading..
+12:56:52->  7: Client connection successful: transferring him to game client
+12:56:52->  7: Found game: connecting...
+12:56:53->  8: gave string to userJA|34.56|44.55|54.32|1
+12:57:57->  8: Could not update Thread!
+12:57:57->  8: Could not update User! Software caused connection abort: socket write error
+12:57:57->  8: Closing...
+12:57:57->  8: Could not read from user: Software caused connection abort: recv failed
+12:57:57->  8: File located: writing..CS320_server\jeff\MyStats.gme
+12:57:57->  7: Closing Successful: Client Disconnected

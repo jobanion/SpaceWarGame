@@ -59,50 +59,50 @@ public class Customize extends BasicGameState implements ServerTALK{
 		g.setColor(Color.white);
 		// First Row
 		ship1.draw((Main.width/2) - 390 + 95 - ship1Width,  (Main.height/2) - 200 + 75 - ship1Height);
-		if(MultiplayerGame.shipName1.equals("spaceship1.gif")) {
+		if(MultiplayerGame.shipName.equals("spaceship1.gif")) {
 			g.drawRect((Main.width/2) - 390 + 60, (Main.height/2) - 200 + 40, 70, 70);
 			ix = 1;
 		}
 		
 		ship2.draw((Main.width/2) - 390 + 295 - ship2Width, (Main.height/2) - 200 + 75 - ship2Height);
-		if(MultiplayerGame.shipName1.equals("spaceship2.gif")) {
+		if(MultiplayerGame.shipName.equals("spaceship2.gif")) {
 			g.drawRect((Main.width/2) - 390 + 260, (Main.height/2) - 200 + 40, 70, 70);
 			ix = 2;
 		}
 		
 		ship3.draw((Main.width/2) - 390 + 495 - ship3Width, (Main.height/2) - 200 + 75 - ship3Height);
-		if(MultiplayerGame.shipName1.equals("spaceship3.gif")) {
+		if(MultiplayerGame.shipName.equals("spaceship3.gif")) {
 			g.drawRect((Main.width/2) - 390 + 460, (Main.height/2) - 200 + 40, 70, 70);
 			ix = 3;
 		}
 		
 		ship4.draw((Main.width/2) - 390 + 695 - ship4Width, (Main.height/2) - 200 + 75 - ship4Height);
-		if(MultiplayerGame.shipName1.equals("spaceship4.gif")) {
+		if(MultiplayerGame.shipName.equals("spaceship4.gif")) {
 			g.drawRect((Main.width/2) - 390 + 660, (Main.height/2) - 200 + 40, 70, 70);
 			ix = 4;
 		}
 		
 		// Second Row
 		ship5.draw((Main.width/2) - 390 + 95 - ship5Width,  (Main.height/2) - 200 + 335 - ship5Height);
-		if(MultiplayerGame.shipName1.equals("spaceship5.gif")) {
+		if(MultiplayerGame.shipName.equals("spaceship5.gif")) {
 			g.drawRect((Main.width/2) - 390 + 60, (Main.height/2) - 200 + 300, 70, 70);
 			ix = 5;
 		}
 		
 		ship6.draw((Main.width/2) - 390 + 295 - ship6Width, (Main.height/2) - 200 + 335 - ship6Height);
-		if(MultiplayerGame.shipName1.equals("spaceship6.gif")) {
+		if(MultiplayerGame.shipName.equals("spaceship6.gif")) {
 			g.drawRect((Main.width/2) - 390 + 260, (Main.height/2) - 200 + 300, 70, 70);
 			ix = 6;
 		}
 		
 		ship7.draw((Main.width/2) - 390 + 495 - ship7Width, (Main.height/2) - 200 + 335 - ship7Height);
-		if(MultiplayerGame.shipName1.equals("spaceship7.gif")) {
+		if(MultiplayerGame.shipName.equals("spaceship7.gif")) {
 			g.drawRect((Main.width/2) - 390 + 460, (Main.height/2) - 200 + 300, 70, 70);
 			ix = 7;
 		}
 		
 		ship8.draw((Main.width/2) - 390 + 695 - ship8Width, (Main.height/2) - 200 + 335 - ship8Height);
-		if(MultiplayerGame.shipName1.equals("spaceship8.gif")) {
+		if(MultiplayerGame.shipName.equals("spaceship8.gif")) {
 			g.drawRect((Main.width/2) - 390 + 660, (Main.height/2) - 200 + 300, 70, 70);
 			ix = 8;
 		}
@@ -122,7 +122,7 @@ public class Customize extends BasicGameState implements ServerTALK{
 		if((posX>(Main.width/2) - 390 + 60 && posX<(Main.width/2) - 390 + 130)&&(posY>(Main.height/2) - 300 + 390 && posY<(Main.height/2) - 300 + 460)) {
 			if(Mouse.isButtonDown(0)){
 				ix = 1;
-				MultiplayerGame.shipName1 = "spaceship1.gif";
+				MultiplayerGame.shipName = "spaceship1.gif";
 			}
 		}
 
@@ -130,7 +130,7 @@ public class Customize extends BasicGameState implements ServerTALK{
 		if((posX>(Main.width/2) - 390 + 260 && posX<(Main.width/2) - 390 + 330)&&(posY>(Main.height/2) - 300 + 390 && posY<(Main.height/2) - 300 + 460)){
 			if(Mouse.isButtonDown(0)){
 				ix = 2;
-				MultiplayerGame.shipName1 = "spaceship2.gif";
+				MultiplayerGame.shipName = "spaceship2.gif";
 			}
 		}
 
@@ -138,7 +138,7 @@ public class Customize extends BasicGameState implements ServerTALK{
 		if((posX>(Main.width/2) - 390 + 460 && posX<(Main.width/2) - 390 + 530)&&(posY>(Main.height/2) - 300 + 390 && posY<(Main.height/2) - 300 + 460)){
 			if(Mouse.isButtonDown(0)){
 				ix = 3;
-				MultiplayerGame.shipName1 = "spaceship3.gif";
+				MultiplayerGame.shipName = "spaceship3.gif";
 			}
 		}
 
@@ -146,7 +146,7 @@ public class Customize extends BasicGameState implements ServerTALK{
 		if((posX>(Main.width/2) - 390 + 660 && posX<(Main.width/2) - 390 + 731)&&(posY>(Main.height/2) - 300 + 390 && posY<(Main.height/2) - 300 + 460)){
 			if(Mouse.isButtonDown(0)){
 				ix = 4;
-				MultiplayerGame.shipName1 = "spaceship4.gif";
+				MultiplayerGame.shipName = "spaceship4.gif";
 			}
 		}
 
@@ -154,7 +154,7 @@ public class Customize extends BasicGameState implements ServerTALK{
 		if((posX>(Main.width/2) - 390 + 60 && posX<(Main.width/2) - 390 + 130)&&(posY>(Main.height/2) - 300 + 130 && posY<(Main.height/2) - 300 + 200)){
 			if(Mouse.isButtonDown(0)){
 				ix = 5;
-				MultiplayerGame.shipName1 = "spaceship5.gif";
+				MultiplayerGame.shipName = "spaceship5.gif";
 			}
 		}
 
@@ -162,7 +162,7 @@ public class Customize extends BasicGameState implements ServerTALK{
 		if((posX>(Main.width/2) - 390 + 260 && posX<(Main.width/2) - 390 + 330)&&(posY>(Main.height/2) - 300 + 130 && posY<(Main.height/2) - 300 + 200)){
 			if(Mouse.isButtonDown(0)){
 				ix = 6;
-				MultiplayerGame.shipName1 = "spaceship6.gif";
+				MultiplayerGame.shipName = "spaceship6.gif";
 			}
 		}
 
@@ -170,7 +170,7 @@ public class Customize extends BasicGameState implements ServerTALK{
 		if((posX>(Main.width/2) - 390 + 460 && posX<(Main.width/2) - 390 + 530)&&(posY>(Main.height/2) - 300 + 130 && posY<(Main.height/2) - 300 + 200)){
 			if(Mouse.isButtonDown(0)){
 				ix = 7;
-				MultiplayerGame.shipName1 = "spaceship7.gif";
+				MultiplayerGame.shipName = "spaceship7.gif";
 			}
 		}
 
@@ -178,14 +178,14 @@ public class Customize extends BasicGameState implements ServerTALK{
 		if((posX>(Main.width/2) - 390 + 660 && posX<(Main.width/2) - 390 + 731)&&(posY>(Main.height/2) - 300 + 130 && posY<(Main.height/2) - 300 + 200)){
 			if(Mouse.isButtonDown(0)){
 				ix = 8;
-				MultiplayerGame.shipName1 = "spaceship8.gif";
+				MultiplayerGame.shipName = "spaceship8.gif";
 			}
 		}
 	
 		// Cancel Button
 		if((posX>(Main.width/2) - 390 + 495 && posX<(Main.width/2) - 390 + 560) && (posY>(Main.height/2) - 200 - 70 && posY<(Main.height/2) - 200 - 50)){
 			if(Mouse.isButtonDown(0)){
-				MultiplayerGame.shipName1 = oldShipName;
+				MultiplayerGame.shipName = oldShipName;
 				sbg.enterState(0);
 			}
 		}
@@ -206,7 +206,7 @@ public class Customize extends BasicGameState implements ServerTALK{
 			} else if(ix > 8) {
 				ix = 1;
 			} 
-			MultiplayerGame.shipName1 = "spaceship" + ix + ".gif";
+			MultiplayerGame.shipName = "spaceship" + ix + ".gif";
 		}
 		if(input.isKeyPressed(Input.KEY_RIGHT)) {
 			ix++;
@@ -215,7 +215,7 @@ public class Customize extends BasicGameState implements ServerTALK{
 			} else if(ix > 8) {
 				ix = 1;
 			} 
-			MultiplayerGame.shipName1 = "spaceship" + ix + ".gif";
+			MultiplayerGame.shipName = "spaceship" + ix + ".gif";
 		}
 		if(input.isKeyPressed(Input.KEY_DOWN)) {
 				 if(ix == 1) {ix = 5;}
@@ -226,7 +226,7 @@ public class Customize extends BasicGameState implements ServerTALK{
 			else if(ix == 6) {ix = 2;} 
 			else if(ix == 7) {ix = 3;} 
 			else if(ix == 8) {ix = 4;}
-			MultiplayerGame.shipName1 = "spaceship" + ix + ".gif";
+			MultiplayerGame.shipName = "spaceship" + ix + ".gif";
 		}
 		if(input.isKeyPressed(Input.KEY_UP)) {
 				 if(ix == 1) {ix = 5;}
@@ -237,7 +237,7 @@ public class Customize extends BasicGameState implements ServerTALK{
 			else if(ix == 6) {ix = 2;} 
 			else if(ix == 7) {ix = 3;} 
 			else if(ix == 8) {ix = 4;}
-			MultiplayerGame.shipName1 = "spaceship" + ix + ".gif";
+			MultiplayerGame.shipName = "spaceship" + ix + ".gif";
 		}
 
 		if(input.isKeyPressed(Input.KEY_ENTER)) {
@@ -245,13 +245,13 @@ public class Customize extends BasicGameState implements ServerTALK{
 			sbg.enterState(0);
 		}
 		if(input.isKeyPressed(Input.KEY_ESCAPE)) {
-			MultiplayerGame.shipName1 = oldShipName;
+			MultiplayerGame.shipName = oldShipName;
 			sbg.enterState(0);
 		}
 	}
 	
 	public void apply() {
-		Main.user.setShipName(MultiplayerGame.shipName1);
+		Main.user.setShipName(MultiplayerGame.shipName);
 		SendInfo(Main.user.ups.Encode(), 2);
 	}
 

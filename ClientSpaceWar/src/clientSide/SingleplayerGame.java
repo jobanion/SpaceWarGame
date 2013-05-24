@@ -17,21 +17,20 @@ public class SingleplayerGame extends BasicGameState {
 
 	String backgroundImage = "SpaceWormHole.jpg";
 	String explosionImage = "explosion.gif";
-	public static String shipName = "spaceship1.gif", shipName2 = "spaceship1.gif";
-	public static Image ship1 = null, ship2 = null, aiShip = null, background = null, shot = null, explosion = null;
+	public static String shipName = "spaceship1.gif";
+	public static Image ship1 = null, aiShip = null, background = null, shot = null, explosion = null;
 
 	public static List<Ship> ships = new CopyOnWriteArrayList<Ship>(); 	// List of all ships
 	public static List<AI> aiShips = new CopyOnWriteArrayList<AI>(); 	// list of all AI ships
 	
 	//The ships (and post-initialization stuff)
-	Ship pShip1;// = new Ship("player", 400, 300, shipName1), 
-	Ship pShip2;// = new Ship("player", 600, 300, shipName1);
+	Ship playerShip;// = new Ship("player", 400, 300, shipName1), 
 	private boolean initial = true;
 
-	public static Shot currentShot1 = null, currentShot2 = null, aiShot = null;
-	public static boolean menu = false, shotFired1 = false, shotFired2 = false, shotFiredAI = false, exploded1 = false, exploded2 = false;
+	public static Shot currentShot = null, aiShot = null;
+	public static boolean menu = false, shotFired = false, shotFiredAI = false, exploded = false;
 	public static long respawnTimer = 0;
-	public static int width = 800, height = 500, d = 0, killCount = 0, deathCount = 0;	
+	public static int width = 800, height = 500, killCount = 0, deathCount = 0;	
 	public static float kdr;
 	public static int count = 0, numOfAI = 1, wonMiddle, notMiddle;
 	public static boolean init = false, playerDead = false;
@@ -44,11 +43,8 @@ public class SingleplayerGame extends BasicGameState {
 
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
 		if(!init){
-			if (!initial){
-				pShip1 = new Ship("player", 600, 300, shipName);
-
-				ships.add(pShip1);
-				respawnAI();
+			if (!initial) {
+				initial();
 			}
 
 			background = new Image("res/" + backgroundImage);
@@ -187,6 +183,7 @@ public class SingleplayerGame extends BasicGameState {
 	private void reset() {
 		ships.clear();
 		aiShips.clear();
+		numOfAI = 1;
 		initial = true;
 	}
 
@@ -210,13 +207,12 @@ public class SingleplayerGame extends BasicGameState {
 				aiShips.add(ai);
 				count++;
 			} catch (SlickException e) {
-
 				e.printStackTrace();
 			}
 		}
 		numOfAI += 2;
 	}
-
+	
 	private static void aiShot() {
 		for(AI current : aiShips ){
 			if(!current.isHit && current.target != null){
@@ -241,24 +237,12 @@ public class SingleplayerGame extends BasicGameState {
 			current.rotate(current.leftOrRight() * 2f, current.ship);
 		}
 	}
-	
-	
-	public static void spawnAI() {
-		Random gen1 = new Random(), gen2 = new Random();
-		AI ai;
-		try {
-			ai = new AI(gen1.nextInt(Main.width), gen2.nextInt(Main.height));
-			ships.add(ai);
-			aiShips.add(ai);
-			count++;
-		} catch (SlickException e) {
-			e.printStackTrace();
-		}
-	}
 
 	public void initial() throws SlickException{
-		pShip1 = new Ship(Main.user.ups.getUsername(), 400, 300, shipName); 
-		ships.add(pShip1);
+		shipName = "spaceship" + Main.user.ups.shipNum + ".gif";
+		playerShip = new Ship(Main.user.ups.getUsername(), 600, 300, shipName);
+		ships.add(playerShip);
+		respawnAI();
 		initial = false; 	// set boolean variable = false, so it does not repeat initialization, and reset to true when go to main
 	}
 

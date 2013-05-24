@@ -162,7 +162,7 @@ public class LoginForm extends JDialog implements ServerTALK{
 
 		// Used to show all current users, needs to be updated to where the arrayList is though
 		//        for(User user : users) {
-		//        	System.out.println(user.getUsername() + " " + user.getPass() + "");
+		//        	  System.out.println(user.getUsername() + " " + user.getPass() + "");
 		//        }
 
 		accept = false;
@@ -176,7 +176,7 @@ public class LoginForm extends JDialog implements ServerTALK{
 			Main.user.ups.setPass(passWd);
 			Main.user.setShipName("spaceship" + parsed[2] + ".gif");
 			Menu.accepted = true;
-			MultiplayerGame.shipName1 = Main.user.getShipName();
+			MultiplayerGame.shipName = Main.user.getShipName();
 			//Main.user.setShipName(Menu.Pship);
 			Menu.shown = true;
 			//System.out.println("spaceship" + parsed[2] + ".gif");
@@ -208,8 +208,9 @@ public class LoginForm extends JDialog implements ServerTALK{
 			//			Main.users.add(new User(userName, firstPass, 0, 0, ship));
 			//			Main.user.getUsername() = userName;
 			fromServer = SendInfo(userName + "|" + firstPass + "|" + String.valueOf(1), 1);
-			if (fromServer == null) uNameTaken = true;
-			else{
+			if (fromServer == null) {
+				uNameTaken = true;
+			} else {
 				accept = true;
 				Main.user = new User(userName, firstPass, 0, 0, ship);
 				Main.user.ups.setUsername(userName);

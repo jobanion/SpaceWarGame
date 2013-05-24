@@ -43,7 +43,7 @@ public class MultiplayerGame extends BasicGameState implements ServerTALK{
 	public static Image ship1 = null, ship2 = null, aiShip = null, background = null, shot = null, explosion = null;
 	static Shot currentShot1 = null, currentShot2 = null, aiShot = null;
 	static boolean menu = false, shotFired1 = false, shotFired2 = false, shotFiredAI = false, exploded1 = false, exploded2 = false;
-	public static String shipName1 = "spaceship1.gif", shipName2 = "spaceship1.gif";
+	public static String shipName = "spaceship1.gif";
 	public static long respawnTimer = 0;
 	public static int width = 800, height = 500, d = 0, killCount = 0, deathCount = 0;	
 	public static float kdr;
@@ -57,10 +57,7 @@ public class MultiplayerGame extends BasicGameState implements ServerTALK{
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
 		if(!init){
 			if (!initial){
-				pShip1 = new Ship("player", 600, 300, shipName1);
-
-				ships.add(pShip1);
-				respawnAI();
+				initial();
 			}
 
 			/// set up Communication stuff with server (XXX MOVED TO SERVERCHOOSE)
@@ -220,7 +217,7 @@ public class MultiplayerGame extends BasicGameState implements ServerTALK{
 	private static void respawnPlayer() {
 		Random gen1 = new Random(), gen2 = new Random();
 		try {
-			ships.add(new Ship(Main.user.ups.getUsername(), gen1.nextInt(Main.width), gen2.nextInt(Main.height), shipName1));
+			ships.add(new Ship(Main.user.ups.getUsername(), gen1.nextInt(Main.width), gen2.nextInt(Main.height), shipName));
 		} catch (SlickException e) {
 		}
 	}
@@ -253,7 +250,7 @@ public class MultiplayerGame extends BasicGameState implements ServerTALK{
 		aiShot();
 	}
 
-	private static void respawnAI() {
+	static void respawnAI() {
 		for(int i = 0; i < numOfAI; i++){
 			Random gen1 = new Random(), gen2 = new Random();
 			AI ai;
@@ -448,34 +445,20 @@ public class MultiplayerGame extends BasicGameState implements ServerTALK{
 
 	}
 
-	public static void spawnAI() {
-		Random gen1 = new Random(), gen2 = new Random();
-		AI ai;
-		try {
-			ai = new AI(gen1.nextInt(Main.width), gen2.nextInt(Main.height));
-			ships.add(ai);
-			aiShips.add(ai);
-			count++;
-		} catch (SlickException e) {
-			e.printStackTrace();
-		}
-
-	}
-
 	@SuppressWarnings("unused")
 	public void initial() throws SlickException{
 		int num = 3;
 		boolean connect;
-		// add user ship(s)
-		pShip1 = new Ship("player", 400, 300, shipName1); 
 
+		// add user ship(s)
+		pShip1 = new Ship("player", 400, 300, shipName); 
 		ships.add(pShip1);
 
-
+		respawnAI();
+		
 		String toUser = null;
 
 		// connect to server (and get boring stuff out of the way...)
-
 		connect = SetUpConnection();
 
 		/// if connection, then send initial information (quick and messy just for testing purposes)
@@ -483,7 +466,7 @@ public class MultiplayerGame extends BasicGameState implements ServerTALK{
 			try{
 				System.out.println("Yay, could connect");
 				out.writeInt(num);
-				out.writeUTF(Main.user.ups.getUsername() + "|" + Main.user.ups.getPass() + "|" + MultiplayerGame.shipName1);
+				out.writeUTF(Main.user.ups.getUsername() + "|" + Main.user.ups.getPass() + "|" + MultiplayerGame.shipName);
 				num = 2;
 
 				in.readBoolean();

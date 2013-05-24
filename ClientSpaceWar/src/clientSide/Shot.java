@@ -46,7 +46,10 @@ public class Shot {
 	
 	public void isCollision() {
 		for(Ship current : MultiplayerGame.ships){
-			current.isCollision();
+			current.isMPCollision();
+		}
+		for(Ship current : SingleplayerGame.ships){
+			current.isSPCollision();
 		}
 	}
 }

@@ -134,7 +134,7 @@ public class Menu extends BasicGameState{
 			if((posX>(Main.width/2) - 75 && posX<(Main.width/2) + 75)&&(posY>(Main.height/2) - 25 && posY<(Main.height/2))) {
 				if(Mouse.isButtonDown(0)){
 					ix = 1;
-					Customize.oldShipName = MultiplayerGame.shipName1;
+					Customize.oldShipName = MultiplayerGame.shipName;
 					sbg.enterState(1);
 				}
 			}
@@ -177,7 +177,7 @@ public class Menu extends BasicGameState{
 					sbg.enterState(2);
 				} else if (ix == 3) {
 					ix = 1;
-					Customize.oldShipName = MultiplayerGame.shipName1;
+					Customize.oldShipName = MultiplayerGame.shipName;
 					sbg.enterState(1);
 				} else if (ix == 4) {
 					exit();

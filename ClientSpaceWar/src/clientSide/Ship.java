@@ -31,49 +31,87 @@ public class Ship {
 		this.point = new Point(x,y);
 	}
 
-	public void isCollision(){
-		for(Ship current : MultiplayerGame.ships){
+	public void isMPCollision() {
+			for(Ship current : MultiplayerGame.ships){
+				if((this.getClass() == AI.class && 
+						current.getClass() == AI.class) || 
+						(this.getClass() == OtherPlayer.class && 
+						current.getClass() == OtherPlayer.class)) { // Split up to be more legible
+
+					continue;
+				}
+
+				if(this.currentShot != null && this != current) {
+					if (this.currentShot.x < current.x + current.ship.getWidth() && this.currentShot.x > current.x &&
+							this.currentShot.y < current.y + current.ship.getHeight() && this.currentShot.y > current.y && 
+							!current.isHit && currentShot.shotVisible) { // Split up to be more legible
+
+						System.out.println("HIT " + current.getShipName() + "!!");
+						current.isHit = true;
+						currentShot.hit = true;
+						MultiplayerGame.ships.remove(current);
+
+						if(current.getClass() == AI.class){
+							MultiplayerGame.count--;
+							MultiplayerGame.killCount++;
+							MultiplayerGame.aiShips.remove(current);
+						} else {
+							MultiplayerGame.deathCount++;
+						}
+						if(MultiplayerGame.aiShips.isEmpty()) {
+							MultiplayerGame.respawnTimer = System.currentTimeMillis();
+						}
+						this.currentShot.hit = true;
+						this.explosionTime = System.currentTimeMillis();
+					}
+				}
+			} 
+	}
+	
+	public void isSPCollision(){
+		for(Ship current : SingleplayerGame.ships){
 			if((this.getClass() == AI.class && 
 					current.getClass() == AI.class) || 
 					(this.getClass() == OtherPlayer.class && 
 					current.getClass() == OtherPlayer.class)) { // Split up to be more legible
-				
+
 				continue;
 			}
-			
-			if(this.currentShot != null && this != current)
+
+			if(this.currentShot != null && this != current) {
 				if (this.currentShot.x < current.x + current.ship.getWidth() && this.currentShot.x > current.x &&
-					this.currentShot.y < current.y + current.ship.getHeight() && this.currentShot.y > current.y && 
-					!current.isHit && currentShot.shotVisible) { // Split up to be more legible
-			
+						this.currentShot.y < current.y + current.ship.getHeight() && this.currentShot.y > current.y && 
+						!current.isHit && currentShot.shotVisible) { // Split up to be more legible
+
 					System.out.println("HIT " + current.getShipName() + "!!");
 					current.isHit = true;
 					currentShot.hit = true;
-					MultiplayerGame.ships.remove(current);
-					
+					SingleplayerGame.ships.remove(current);
+
 					if(current.getClass() == AI.class){
-						MultiplayerGame.count--;
-						MultiplayerGame.killCount++;
-						MultiplayerGame.aiShips.remove(current);
+						SingleplayerGame.count--;
+						SingleplayerGame.killCount++;
+						SingleplayerGame.aiShips.remove(current);
 					} else {
-						MultiplayerGame.deathCount++;
+						SingleplayerGame.deathCount++;
 					}
-					if(MultiplayerGame.aiShips.isEmpty()) {
-						MultiplayerGame.respawnTimer = System.currentTimeMillis();
+					if(SingleplayerGame.aiShips.isEmpty()) {
+						SingleplayerGame.respawnTimer = System.currentTimeMillis();
 					}
 					this.currentShot.hit = true;
 					this.explosionTime = System.currentTimeMillis();
 				}
-		}
-	}
+			}
+		} 
+}
 
 	public void update(GameContainer gc, StateBasedGame sbg, int delta, Input input) throws SlickException{
 		if(input.isKeyDown(Input.KEY_C)){
-			MultiplayerGame.spawnAI();
+			MultiplayerGame.respawnAI();
 		}
-		
+
 		float rotates = 0.2f * delta;
-		
+
 		if(input.isKeyDown(Input.KEY_LEFT) && !this.isHit) {
 			this.rotate(-rotates, this.ship);
 			Main.user.pos.setTurn(-rotates);
