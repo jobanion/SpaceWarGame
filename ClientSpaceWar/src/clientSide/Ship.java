@@ -14,7 +14,8 @@ public class Ship {
 	protected String shipName = "";
 	public boolean isHit = false, shotFired = false;
 	public long explosionTime = 0;
-	public Shot currentShot = null;
+	public ShotSP currentShotSP = null;
+	public ShotMP currentShotMP = null;
 	Point point;
 	float hip = 0;
 	double rotL;
@@ -31,43 +32,6 @@ public class Ship {
 		this.point = new Point(x,y);
 	}
 
-	public void isMPCollision() {
-			for(Ship current : MultiplayerGame.ships){
-				if((this.getClass() == AI.class && 
-						current.getClass() == AI.class) || 
-						(this.getClass() == OtherPlayer.class && 
-						current.getClass() == OtherPlayer.class)) { // Split up to be more legible
-
-					continue;
-				}
-
-				if(this.currentShot != null && this != current) {
-					if (this.currentShot.x < current.x + current.ship.getWidth() && this.currentShot.x > current.x &&
-							this.currentShot.y < current.y + current.ship.getHeight() && this.currentShot.y > current.y && 
-							!current.isHit && currentShot.shotVisible) { // Split up to be more legible
-
-						System.out.println("HIT " + current.getShipName() + "!!");
-						current.isHit = true;
-						currentShot.hit = true;
-						MultiplayerGame.ships.remove(current);
-
-						if(current.getClass() == AI.class){
-							MultiplayerGame.count--;
-							MultiplayerGame.killCount++;
-							MultiplayerGame.aiShips.remove(current);
-						} else {
-							MultiplayerGame.deathCount++;
-						}
-						if(MultiplayerGame.aiShips.isEmpty()) {
-							MultiplayerGame.respawnTimer = System.currentTimeMillis();
-						}
-						this.currentShot.hit = true;
-						this.explosionTime = System.currentTimeMillis();
-					}
-				}
-			} 
-	}
-	
 	public void isSPCollision(){
 		for(Ship current : SingleplayerGame.ships){
 			if((this.getClass() == AI.class && 
@@ -78,14 +42,14 @@ public class Ship {
 				continue;
 			}
 
-			if(this.currentShot != null && this != current) {
-				if (this.currentShot.x < current.x + current.ship.getWidth() && this.currentShot.x > current.x &&
-						this.currentShot.y < current.y + current.ship.getHeight() && this.currentShot.y > current.y && 
-						!current.isHit && currentShot.shotVisible) { // Split up to be more legible
+			if(this.currentShotSP != null && this != current) {
+				if (this.currentShotSP.x < current.x + current.ship.getWidth() && this.currentShotSP.x > current.x &&
+						this.currentShotSP.y < current.y + current.ship.getHeight() && this.currentShotSP.y > current.y && 
+						!current.isHit && currentShotSP.shotVisible) { // Split up to be more legible
 
 					System.out.println("HIT " + current.getShipName() + "!!");
 					current.isHit = true;
-					currentShot.hit = true;
+					currentShotSP.hit = true;
 					SingleplayerGame.ships.remove(current);
 
 					if(current.getClass() == AI.class){
@@ -98,17 +62,54 @@ public class Ship {
 					if(SingleplayerGame.aiShips.isEmpty()) {
 						SingleplayerGame.respawnTimer = System.currentTimeMillis();
 					}
-					this.currentShot.hit = true;
+					this.currentShotSP.hit = true;
 					this.explosionTime = System.currentTimeMillis();
 				}
 			}
 		} 
-}
+	}
+
+	public void isMPCollision() {
+		for(Ship current : MultiplayerGame.ships){
+			if((this.getClass() == AI.class && current.getClass() == AI.class) || 
+					(this.getClass() == OtherPlayer.class && current.getClass() == OtherPlayer.class)) { 
+				continue;
+			}
+
+			if(this.currentShotMP != null && this != current) {
+				if (this.currentShotMP.x < current.x + current.ship.getWidth() && this.currentShotMP.x > current.x &&
+						this.currentShotMP.y < current.y + current.ship.getHeight() && this.currentShotMP.y > current.y && 
+						!current.isHit && currentShotMP.shotVisible) { // Split up to be more legible
+
+					System.out.println("HIT " + current.getShipName() + "!!");
+					current.isHit = true;
+					currentShotMP.hit = true;
+					MultiplayerGame.ships.remove(current);
+
+					if(current.getClass() == AI.class){
+						MultiplayerGame.count--;
+						MultiplayerGame.killCount++;
+						MultiplayerGame.aiShips.remove(current);
+					} else {
+						MultiplayerGame.deathCount++;
+					}
+					if(MultiplayerGame.aiShips.isEmpty()) {
+						MultiplayerGame.respawnTimer = System.currentTimeMillis();
+					}
+					this.currentShotMP.hit = true;
+					this.explosionTime = System.currentTimeMillis();
+				}
+			}
+		} 
+	}
 
 	public void update(GameContainer gc, StateBasedGame sbg, int delta, Input input) throws SlickException{
-		if(input.isKeyDown(Input.KEY_C)){
-			MultiplayerGame.respawnAI();
-		}
+//		if(input.isKeyDown(Input.KEY_C) && Menu.multi){
+//			MultiplayerGame.respawnAI();
+//		}
+//		if(input.isKeyDown(Input.KEY_C) && !Menu.multi){
+//			SingleplayerGame.respawnAI();
+//		}
 
 		float rotates = 0.2f * delta;
 
@@ -134,12 +135,21 @@ public class Ship {
 			this.move(hip, rotation);
 		}
 
-		if(input.isKeyDown(Input.KEY_SPACE) && !this.isHit){
+		if(input.isKeyDown(Input.KEY_SPACE) && !this.isHit && Menu.multi == false){
 			if(!shotFired && !gc.isPaused()) {
-				currentShot = new Shot(hip + 3, this.x+10, this.y+5, this.ship.getRotation(), 1);
+				currentShotSP = new ShotSP(hip + 3, this.x+10, this.y+5, this.ship.getRotation(), 1);
 				shotFired = true;
-			} else if(!currentShot.shotVisible) {
-				currentShot = new Shot(hip + 3, this.x+10, this.y+5, this.ship.getRotation(), 1);
+			} else if(!currentShotSP.shotVisible) {
+				currentShotSP = new ShotSP(hip + 3, this.x+10, this.y+5, this.ship.getRotation(), 1);
+			}
+		}
+		
+		if(input.isKeyDown(Input.KEY_SPACE) && !this.isHit && Menu.multi == true){
+			if(!shotFired && !gc.isPaused()) {
+				currentShotMP = new ShotMP(hip + 3, this.x+10, this.y+5, this.ship.getRotation(), 1);
+				shotFired = true;
+			} else if(!currentShotMP.shotVisible) {
+				currentShotMP = new ShotMP(hip + 3, this.x+10, this.y+5, this.ship.getRotation(), 1);
 			}
 		}
 	}
@@ -152,13 +162,21 @@ public class Ship {
 			MultiplayerGame.explosion.draw(this.x-15, this.y-10);	
 		}
 
-		if(shotFired) {
-			if(currentShot.shotVisible && !currentShot.hit) {
-				currentShot.updateShot();
-				g.fillOval(currentShot.x, currentShot.y, 8, 8);
-			} else if (currentShot.timeFired + 800 < System.currentTimeMillis()) {
-				currentShot.hit = false;
-				currentShot.shotVisible = false;
+		if(shotFired && !Menu.multi) {
+			if(currentShotSP.shotVisible && !currentShotSP.hit) {
+				currentShotSP.updateShot();
+				g.fillOval(currentShotSP.x, currentShotSP.y, 8, 8);
+			} else if (currentShotSP.timeFired + 800 < System.currentTimeMillis()) {
+				currentShotSP.hit = false;
+				currentShotSP.shotVisible = false;
+			}
+		} else if(shotFired && Menu.multi) {
+			if(currentShotMP.shotVisible && !currentShotMP.hit) {
+				currentShotMP.updateShot();
+				g.fillOval(currentShotMP.x, currentShotMP.y, 8, 8);
+			} else if (currentShotMP.timeFired + 800 < System.currentTimeMillis()) {
+				currentShotMP.hit = false;
+				currentShotMP.shotVisible = false;
 			}
 		} 
 	}
@@ -179,19 +197,19 @@ public class Ship {
 			y -= (hip * rotR);
 			Main.user.pos.setX(x);
 			Main.user.pos.setY(y);
-			
+
 			// makes the sides loop
-			if(x > MultiplayerGame.width) {
+			if(x > Main.width) {
 				x = 0;
 			} else if(x < 0) {
-				x = MultiplayerGame.width;
+				x = Main.width;
 			}
 
 			// Makes the top and bottom loop
-			if(y > MultiplayerGame.height) {
+			if(y > Main.height) {
 				y = 0;
 			} else if(y < 0) {
-				y = MultiplayerGame.height;
+				y = Main.height;
 			}
 		}
 	}

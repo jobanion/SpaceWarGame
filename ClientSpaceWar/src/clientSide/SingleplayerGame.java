@@ -27,10 +27,10 @@ public class SingleplayerGame extends BasicGameState {
 	Ship playerShip;// = new Ship("player", 400, 300, shipName1), 
 	private boolean initial = true;
 
-	public static Shot currentShot = null, aiShot = null;
+	public static ShotSP currentShot = null, aiShot = null;
 	public static boolean menu = false, shotFired = false, shotFiredAI = false, exploded = false;
 	public static long respawnTimer = 0;
-	public static int width = 800, height = 500, killCount = 0, deathCount = 0;	
+	public static int width, height, killCount = 0, deathCount = 0;	
 	public static float kdr;
 	public static int count = 0, numOfAI = 1, wonMiddle, notMiddle;
 	public static boolean init = false, playerDead = false;
@@ -49,8 +49,8 @@ public class SingleplayerGame extends BasicGameState {
 
 			background = new Image("res/" + backgroundImage);
 			explosion = new Image("res/" + explosionImage);
-			width = gc.getWidth();
-			height = gc.getHeight();
+			width = Main.width;
+			height = Main.height;
 			init = true;
 
 			Font awtFont4 = new Font("Calibre", Font.BOLD, 32);
@@ -197,7 +197,7 @@ public class SingleplayerGame extends BasicGameState {
 		aiShot();
 	}
 
-	private static void respawnAI() {
+	static void respawnAI() {
 		for(int i = 0; i < numOfAI; i++){
 			Random gen1 = new Random(), gen2 = new Random();
 			AI ai;
@@ -217,10 +217,10 @@ public class SingleplayerGame extends BasicGameState {
 		for(AI current : aiShips ){
 			if(!current.isHit && current.target != null){
 				if(!current.shotFired) {
-					current.currentShot = new Shot(1, current.x+10, current.y+5, current.ship.getRotation(), 3);
+					current.currentShotSP = new ShotSP(1, current.x+10, current.y+5, current.ship.getRotation(), 3);
 					current.shotFired = true;
-				} else if(!current.currentShot.shotVisible) {
-					current.currentShot = new Shot(1, current.x+10, current.y+5, current.ship.getRotation(), 3);
+				} else if(!current.currentShotSP.shotVisible) {
+					current.currentShotSP = new ShotSP(1, current.x+10, current.y+5, current.ship.getRotation(), 3);
 				}
 			}
 		}

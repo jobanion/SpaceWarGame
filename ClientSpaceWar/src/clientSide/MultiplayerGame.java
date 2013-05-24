@@ -18,6 +18,7 @@ import org.newdawn.slick.state.*;
 public class MultiplayerGame extends BasicGameState implements ServerTALK{
 
 	String backgroundImage = "SpaceWormHole.jpg";
+	String explosionImage = "explosion.gif";
 
 	public static List<Ship> ships = new CopyOnWriteArrayList<Ship>();
 	public static List<OtherPlayer> others = new CopyOnWriteArrayList<>();
@@ -41,11 +42,11 @@ public class MultiplayerGame extends BasicGameState implements ServerTALK{
 	//	static Ship newShip1, newShip2;
 	//	static AI newAIShip;
 	public static Image ship1 = null, ship2 = null, aiShip = null, background = null, shot = null, explosion = null;
-	static Shot currentShot1 = null, currentShot2 = null, aiShot = null;
+	static ShotMP currentShot1 = null, currentShot2 = null, aiShot = null;
 	static boolean menu = false, shotFired1 = false, shotFired2 = false, shotFiredAI = false, exploded1 = false, exploded2 = false;
 	public static String shipName = "spaceship1.gif";
 	public static long respawnTimer = 0;
-	public static int width = 800, height = 500, d = 0, killCount = 0, deathCount = 0;	
+	public static int width, height, d = 0, killCount = 0, deathCount = 0;	
 	public static float kdr;
 	public static int count = 0, numOfAI = 1, wonMiddle, notMiddle;
 	static boolean init = false, playerDead = false;
@@ -73,9 +74,9 @@ public class MultiplayerGame extends BasicGameState implements ServerTALK{
 			/// communication set up
 
 			background = new Image("res/" + backgroundImage);
-			explosion = new Image("res/explosion.gif");
-			width = gc.getWidth();
-			height = gc.getHeight();
+			explosion = new Image("res/" + explosionImage);
+			width = Main.width;
+			height = Main.height;
 			init = true;
 
 			Font awtFont4 = new Font("Calibre", Font.BOLD, 32);
@@ -272,10 +273,10 @@ public class MultiplayerGame extends BasicGameState implements ServerTALK{
 		for(AI current : aiShips ){
 			if(!current.isHit && current.target != null){
 				if(!current.shotFired) {
-					current.currentShot = new Shot(1, current.x+10, current.y+5, current.ship.getRotation(), 3);
+					current.currentShotMP = new ShotMP(1, current.x+10, current.y+5, current.ship.getRotation(), 3);
 					current.shotFired = true;
-				} else if(!current.currentShot.shotVisible) {
-					current.currentShot = new Shot(1, current.x+10, current.y+5, current.ship.getRotation(), 3);
+				} else if(!current.currentShotMP.shotVisible) {
+					current.currentShotMP = new ShotMP(1, current.x+10, current.y+5, current.ship.getRotation(), 3);
 				}
 			}
 		}

@@ -9,7 +9,7 @@ import org.newdawn.slick.state.*;
 @SuppressWarnings("deprecation")
 public class Menu extends BasicGameState{
 
-	public static Boolean showNoLogin = false, accepted = showNoLogin, shown = showNoLogin;
+	public static Boolean showNoLogin = false, accepted = showNoLogin, shown = showNoLogin, multi;
 	public static String banner, SPPlayMI, MPPlayMI, customizeMI, exitMI, won = "You Won!!";
 	int middle, SPPlayMiddle, MPPlayMiddle, customizeMiddle, exitMiddle, boxMiddle, wonMiddle;
 	public static int ix = 1;
@@ -116,6 +116,7 @@ public class Menu extends BasicGameState{
 			if((posX>(Main.width/2) - 75 && posX<(Main.width/2) + 75)&&(posY>(Main.height/2) + 75 && posY<(Main.height/2) + 100)) {
 				if(Mouse.isButtonDown(0)){
 					ix = 1;
+					multi = false;
 					sbg.init(gc);
 					sbg.enterState(4);
 				}
@@ -125,6 +126,7 @@ public class Menu extends BasicGameState{
 			if((posX>(Main.width/2) - 75 && posX<(Main.width/2) + 75)&&(posY>(Main.height/2) + 25 && posY<(Main.height/2) + 50)) {
 				if(Mouse.isButtonDown(0)){
 					ix = 1;
+					multi = true;
 					sbg.init(gc);
 					sbg.enterState(2);
 				}
@@ -169,11 +171,13 @@ public class Menu extends BasicGameState{
 			if(input.isKeyPressed(Input.KEY_ENTER)) {
 				if(ix == 1) {
 					ix = 1;
+					multi = false;
 					sbg.init(gc);
 					sbg.enterState(4);
 				} else if (ix == 2) {
-					ix = 1;
+					multi = true;
 					sbg.init(gc);
+					ix = 1;
 					sbg.enterState(2);
 				} else if (ix == 3) {
 					ix = 1;

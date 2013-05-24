@@ -1,6 +1,6 @@
 package clientSide;
 
-public class Shot {
+public class ShotMP {
 
 	float x, y, rotation;
 	long timeFired = 0;
@@ -9,7 +9,7 @@ public class Shot {
 	int shipNum;
 	float hip;
 
-	public Shot(float hip, float x, float y, float rotation, int shipNum){
+	public ShotMP(float hip, float x, float y, float rotation, int shipNum){
 		this.hip  = hip;
 		this.x = x;
 		this.y = y;
@@ -28,17 +28,17 @@ public class Shot {
 		
 		if(shipNum != 3) {
 			// makes the sides loop
-			if(x > MultiplayerGame.width) {
+			if(x > Main.width) {
 				x = 0;
 			} else if(x < 0) {
-				x = MultiplayerGame.width;
+				x = Main.width;
 			}
 
 			// Makes the top and bottom loop
-			if(y > MultiplayerGame.height) {
+			if(y > Main.height) {
 				y = 0;
 			} else if(y < 0) {
-				y = MultiplayerGame.height;
+				y = Main.height;
 			}
 		}
 		isCollision();
@@ -47,9 +47,6 @@ public class Shot {
 	public void isCollision() {
 		for(Ship current : MultiplayerGame.ships){
 			current.isMPCollision();
-		}
-		for(Ship current : SingleplayerGame.ships){
-			current.isSPCollision();
 		}
 	}
 }
