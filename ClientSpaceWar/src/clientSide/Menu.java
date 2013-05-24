@@ -197,6 +197,6 @@ public class Menu extends BasicGameState{
 
 	// something needed for using the states
 	public int getID(){
-		return 0;
+		return Main.gameState.MENU.value;
 	}
 }

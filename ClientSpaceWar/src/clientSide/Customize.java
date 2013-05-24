@@ -255,10 +255,6 @@ public class Customize extends BasicGameState implements ServerTALK{
 		SendInfo(Main.user.ups.Encode(), 2);
 	}
 
-	public int getID(){
-		return 1;
-	}
-
 	@Override
 	public String RecieveInfo() {
 		return null;
@@ -321,4 +317,11 @@ public class Customize extends BasicGameState implements ServerTALK{
 		}
 		return true;
 	}
+	
+	public int getID(){
+		return Main.gameState.CUSTOMIZE.value;
+	}
+
 }
+
+

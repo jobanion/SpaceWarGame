@@ -1,6 +1,5 @@
 package clientSide;
 
-import java.awt.Font;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -34,23 +33,21 @@ public class MultiplayerGame extends BasicGameState implements ServerTALK{
 
 	//The ships (and post-initialization stuff)
 	Ship pShip1;// = new Ship("player", 400, 300, shipName1), 
-	Ship pShip2;// = new Ship("player", 600, 300, shipName1);
 	private boolean initial = true;
 
 	//public static float x, y, rotation;
 	//public static String shipName, myName;		/** note: set myName!!!!!!		*/
 	//	static Ship newShip1, newShip2;
 	//	static AI newAIShip;
-	public static Image ship1 = null, ship2 = null, aiShip = null, background = null, shot = null, explosion = null;
-	static ShotMP currentShot1 = null, currentShot2 = null, aiShot = null;
-	static boolean menu = false, shotFired1 = false, shotFired2 = false, shotFiredAI = false, exploded1 = false, exploded2 = false;
+	public static Image background = null, explosion = null;
+	static ShotMP aiShot = null;
 	public static String shipName = "spaceship1.gif";
 	public static long respawnTimer = 0;
-	public static int width, height, d = 0, killCount = 0, deathCount = 0;	
+	public static int width, height, killCount = 0, deathCount = 0;	
 	public static float kdr;
-	public static int count = 0, numOfAI = 1, wonMiddle, notMiddle;
-	static boolean init = false, playerDead = false;
-	public String respawn = "Respawn (R)", resume = "Resume (R)", mainMenu = "Main Menu (M)", exit = "Quit Game (Q)", won = "You Won!!", not = "NOT!!";
+	public static int count = 0, numOfAI = 1;
+	static boolean init = false, playerDead = false, menu = false;
+	public String respawn = "Respawn (R)", resume = "Resume (R)", mainMenu = "Main Menu (M)", exit = "Quit Game (Q)";
 	TrueTypeFont font4, font5;
 	public MultiplayerGame(int state) {
 	}
@@ -78,13 +75,6 @@ public class MultiplayerGame extends BasicGameState implements ServerTALK{
 			width = Main.width;
 			height = Main.height;
 			init = true;
-
-			Font awtFont4 = new Font("Calibre", Font.BOLD, 32);
-			font4 = new TrueTypeFont(awtFont4, false);
-			wonMiddle = Main.width/2 - font4.getWidth(won);
-			Font awtFont5 = new Font("Calibre", Font.BOLD, 64);
-			font5 = new TrueTypeFont(awtFont5, false);
-			notMiddle = Main.width/2 - font5.getWidth(not);
 		}
 	}
 
@@ -111,11 +101,6 @@ public class MultiplayerGame extends BasicGameState implements ServerTALK{
 				g.clear();
 			}
 		}	
-
-		//		if(aiShips.isEmpty() && System.currentTimeMillis() <= respawnTimer + 7000) {
-		//			font4.drawString(wonMiddle, Main.height/2, won, Color.green);
-		//		} else if(System.currentTimeMillis() <= respawnTimer + 8000)
-		//			font5.drawString(notMiddle, Main.height/2, not, Color.red);
 
 		g.drawString("Enemies Left: " + count, Main.width - 200, 10);
 		g.drawString("Kills: " + killCount, Main.width - 200, 30);
@@ -509,6 +494,6 @@ public class MultiplayerGame extends BasicGameState implements ServerTALK{
 
 	// State based stuff thingie
 	public int getID(){
-		return 2;
+		return Main.gameState.MULTIPLAYERGAME.value;
 	}
 }

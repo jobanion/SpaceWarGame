@@ -40,6 +40,6 @@ public class Login extends BasicGameState{
 	}
 
 	public int getID() {
-		return 3;
+		return Main.gameState.LOGIN.value;
 	}
 }

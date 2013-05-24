@@ -1,7 +1,6 @@
 
 package clientSide;
 
-import java.awt.Font;
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -17,24 +16,24 @@ public class SingleplayerGame extends BasicGameState {
 
 	String backgroundImage = "SpaceWormHole.jpg";
 	String explosionImage = "explosion.gif";
-	public static String shipName = "spaceship1.gif";
-	public static Image ship1 = null, aiShip = null, background = null, shot = null, explosion = null;
+	public static Image background = null, explosion = null;
+	public static String shipImage = "spaceship1.gif";
 
 	public static List<Ship> ships = new CopyOnWriteArrayList<Ship>(); 	// List of all ships
-	public static List<AIMP> aiShips = new CopyOnWriteArrayList<AIMP>(); 	// list of all AI ships
+	public static List<AISP> aiShips = new CopyOnWriteArrayList<AISP>(); 	// list of all AI ships
 	
-	//The ships (and post-initialization stuff)
-	Ship playerShip;// = new Ship("player", 400, 300, shipName1), 
+	// The ships (and post-initialization stuff)
+	Ship playerShip;
 	private boolean initial = true;
 
-	public static ShotSP currentShot = null, aiShot = null;
-	public static boolean menu = false, shotFired = false, shotFiredAI = false, exploded = false;
+	public static ShotSP aiShot = null;
+	public static boolean menu = false, exploded = false;
 	public static long respawnTimer = 0;
 	public static int width, height, killCount = 0, deathCount = 0;	
 	public static float kdr;
-	public static int count = 0, numOfAI = 1, wonMiddle, notMiddle;
+	public static int count = 0, numOfAI = 1;
 	public static boolean init = false, playerDead = false;
-	public String respawn = "Respawn (R)", resume = "Resume (R)", mainMenu = "Main Menu (M)", exit = "Quit Game (Q)", won = "You Won!!", not = "NOT!!";
+	public String respawn = "Respawn (R)", resume = "Resume (R)", mainMenu = "Main Menu (M)", exit = "Quit Game (Q)";
 	
 	TrueTypeFont font4, font5;
 	
@@ -53,13 +52,6 @@ public class SingleplayerGame extends BasicGameState {
 			height = Main.height;
 			init = true;
 
-			Font awtFont4 = new Font("Calibre", Font.BOLD, 32);
-			font4 = new TrueTypeFont(awtFont4, false);
-			wonMiddle = Main.width/2 - font4.getWidth(won);
-			
-			Font awtFont5 = new Font("Calibre", Font.BOLD, 64);
-			font5 = new TrueTypeFont(awtFont5, false);
-			notMiddle = Main.width/2 - font5.getWidth(not);
 		}
 	}
 
@@ -118,7 +110,7 @@ public class SingleplayerGame extends BasicGameState {
 
 		// update player ship
 		for(Ship current : ships){
-			if(current.getClass() != AIMP.class) {
+			if(current.getClass() != AISP.class) {
 				current.update(gc, sbg, delta, input);
 			}
 		}		
@@ -175,7 +167,7 @@ public class SingleplayerGame extends BasicGameState {
 	private static void respawnPlayer() {
 		Random gen1 = new Random(), gen2 = new Random();
 		try {
-			ships.add(new Ship(Main.user.ups.getUsername(), gen1.nextInt(Main.width), gen2.nextInt(Main.height), shipName));
+			ships.add(new Ship(Main.user.ups.getUsername(), gen1.nextInt(Main.width), gen2.nextInt(Main.height), shipImage));
 		} catch (SlickException e) {
 		}
 	}
@@ -200,9 +192,9 @@ public class SingleplayerGame extends BasicGameState {
 	static void respawnAI() {
 		for(int i = 0; i < numOfAI; i++){
 			Random gen1 = new Random(), gen2 = new Random();
-			AIMP ai;
+			AISP ai;
 			try {
-				ai = new AIMP(gen1.nextInt(Main.width), gen2.nextInt(Main.height));
+				ai = new AISP(gen1.nextInt(Main.width), gen2.nextInt(Main.height));
 				ships.add(ai);
 				aiShips.add(ai);
 				count++;
@@ -214,7 +206,7 @@ public class SingleplayerGame extends BasicGameState {
 	}
 	
 	private static void aiShot() {
-		for(AIMP current : aiShips ){
+		for(AISP current : aiShips ){
 			if(!current.isHit && current.target != null){
 				if(!current.shotFired) {
 					current.currentShotSP = new ShotSP(1, current.x+10, current.y+5, current.ship.getRotation(), 3);
@@ -227,20 +219,20 @@ public class SingleplayerGame extends BasicGameState {
 	}
 
 	private static void aiMove(int delta) {
-		for(AIMP current : aiShips ){
+		for(AISP current : aiShips ){
 			current.move(delta * 0.3f, current.ship.getRotation());
 		}
 	}
 
 	private static void aiRotate() {
-		for(AIMP current : aiShips ){
+		for(AISP current : aiShips ){
 			current.rotate(current.leftOrRight() * 2f, current.ship);
 		}
 	}
 
 	public void initial() throws SlickException{
-		shipName = "spaceship" + Main.user.ups.shipNum + ".gif";
-		playerShip = new Ship(Main.user.ups.getUsername(), 600, 300, shipName);
+		shipImage = "spaceship" + Main.user.ups.shipNum + ".gif";
+		playerShip = new Ship(Main.user.ups.getUsername(), 600, 300, shipImage);
 		ships.add(playerShip);
 		respawnAI();
 		initial = false; 	// set boolean variable = false, so it does not repeat initialization, and reset to true when go to main
@@ -248,6 +240,6 @@ public class SingleplayerGame extends BasicGameState {
 
 	// State based stuff thingie
 	public int getID(){
-		return 4;
+		return Main.gameState.SINGLEPLAYERGAME.value;
 	}
 }
