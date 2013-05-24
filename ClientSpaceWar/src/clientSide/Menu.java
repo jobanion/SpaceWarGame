@@ -1,10 +1,10 @@
 package clientSide;
 
 import java.awt.Font;
-
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
+
 
 @SuppressWarnings("deprecation")
 public class Menu extends BasicGameState{
@@ -108,7 +108,7 @@ public class Menu extends BasicGameState{
 					ix = 1;
 					Login.shown = false;
 					accepted = false;
-					sbg.enterState(3);
+					sbg.enterState(Main.gameState.LOGIN.value);
 				}
 			}
 			
@@ -118,7 +118,7 @@ public class Menu extends BasicGameState{
 					ix = 1;
 					multi = false;
 					sbg.init(gc);
-					sbg.enterState(4);
+					sbg.enterState(Main.gameState.SINGLEPLAYERGAME.value);
 				}
 			}
 
@@ -128,7 +128,7 @@ public class Menu extends BasicGameState{
 					ix = 1;
 					multi = true;
 					sbg.init(gc);
-					sbg.enterState(2);
+					sbg.enterState(Main.gameState.MULTIPLAYERGAME.value);
 				}
 			}
 
@@ -137,7 +137,7 @@ public class Menu extends BasicGameState{
 				if(Mouse.isButtonDown(0)){
 					ix = 1;
 					Customize.oldShipName = MultiplayerGame.shipName;
-					sbg.enterState(1);
+					sbg.enterState(Main.gameState.CUSTOMIZE.value);
 				}
 			}
 			
@@ -173,16 +173,16 @@ public class Menu extends BasicGameState{
 					ix = 1;
 					multi = false;
 					sbg.init(gc);
-					sbg.enterState(4);
+					sbg.enterState(Main.gameState.SINGLEPLAYERGAME.value);
 				} else if (ix == 2) {
 					multi = true;
 					sbg.init(gc);
 					ix = 1;
-					sbg.enterState(2);
+					sbg.enterState(Main.gameState.MULTIPLAYERGAME.value);
 				} else if (ix == 3) {
 					ix = 1;
 					Customize.oldShipName = MultiplayerGame.shipName;
-					sbg.enterState(1);
+					sbg.enterState(Main.gameState.CUSTOMIZE.value);
 				} else if (ix == 4) {
 					exit();
 				}

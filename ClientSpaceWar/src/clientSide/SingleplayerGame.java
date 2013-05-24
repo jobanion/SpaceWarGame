@@ -142,7 +142,7 @@ public class SingleplayerGame extends BasicGameState {
 				gc.setPaused(false);
 				reset();
 				initial = true; 				// so it will repeat when you get back on (re-initialize with new ship)
-				sbg.enterState(0);
+				sbg.enterState(Main.gameState.MENU.value);
 			}
 
 			if(input.isKeyDown(Input.KEY_Q)){  // Closes the program
@@ -164,7 +164,7 @@ public class SingleplayerGame extends BasicGameState {
 				gc.setPaused(false);
 				reset();
 				initial = true; 				// so it will repeat when you get back on (re-initialize with new ship)
-				sbg.enterState(0);
+				sbg.enterState(Main.gameState.MENU.value);
 			}
 			if(input.isKeyDown(Input.KEY_Q)){  // Closes the program
 				Menu.exit();

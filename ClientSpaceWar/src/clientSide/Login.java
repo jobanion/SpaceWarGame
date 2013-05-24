@@ -35,7 +35,7 @@ public class Login extends BasicGameState{
 		if(!Menu.accepted && !shown) {
 			show();
 		} else if(Menu.accepted && shown) {
-			sbg.enterState(0);
+			sbg.enterState(Main.gameState.MENU.value);
 		}
 	}
 

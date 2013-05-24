@@ -173,7 +173,7 @@ public class MultiplayerGame extends BasicGameState implements ServerTALK{
 				gc.setPaused(false);
 				reset();
 				initial = true; 				// so it will repeat when you get back on (re-initialize with new ship)
-				sbg.enterState(0);
+				sbg.enterState(Main.gameState.MENU.value);
 				try{
 					Thread.sleep(250);
 				}catch(InterruptedException e){
@@ -200,7 +200,7 @@ public class MultiplayerGame extends BasicGameState implements ServerTALK{
 				gc.setPaused(false);
 				reset();
 				initial = true; 				// so it will repeat when you get back on (re-initialize with new ship)
-				sbg.enterState(0);
+				sbg.enterState(Main.gameState.MENU.value);
 				// Joseph's stuff (for when the user leaves a server)
 				try{
 					Thread.sleep(250);

@@ -9,25 +9,32 @@ public class Main extends StateBasedGame{
 	public static String ip = "localhost";
 	public static int port = 3865;
 	public static final String gamename = "Space War Game";
-	public static final int menu = 0, customize = 1, multiplayerGame = 2, login = 3, singleplayerGame = 4;	// The states
+	public static enum gameState{
+		MENU(0), CUSTOMIZE(1), MULTIPLAYERGAME(2), LOGIN(3), SINGLEPLAYERGAME(4);
+		int value;
+
+		private gameState(int value) { // Because the yare expected to be ints when being passed in
+			this.value = value;
+		}
+	};
 	public static int width = 1200, height = 650;														    // Window dimensions
 
 	public Main(String gamename){
 		super(gamename);
-		this.addState(new Menu(menu));
-		this.addState(new Customize(customize));
-		this.addState(new MultiplayerGame(multiplayerGame));
-		this.addState(new Login(login));
-		this.addState(new SingleplayerGame(singleplayerGame));
+		this.addState(new Menu(gameState.MENU.value));
+		this.addState(new Customize(gameState.CUSTOMIZE.value));
+		this.addState(new MultiplayerGame(gameState.MULTIPLAYERGAME.value));
+		this.addState(new Login(gameState.LOGIN.value));
+		this.addState(new SingleplayerGame(gameState.SINGLEPLAYERGAME.value));
 	}
 
 	public void initStatesList(GameContainer gc) throws SlickException{
-		this.getState(menu).init(gc, this);
-		this.getState(customize).init(gc, this);
-		this.getState(multiplayerGame).init(gc, this);
-		this.getState(login).init(gc, this);
-		this.getState(singleplayerGame).init(gc, this);
-		this.enterState(login);
+		this.getState(gameState.MENU.value).init(gc, this);
+		this.getState(gameState.CUSTOMIZE.value).init(gc, this);
+		this.getState(gameState.MULTIPLAYERGAME.value).init(gc, this);
+		this.getState(gameState.LOGIN.value).init(gc, this);
+		this.getState(gameState.SINGLEPLAYERGAME.value).init(gc, this);
+		this.enterState(gameState.LOGIN.value);
 	}
 
 	public static void main(String[] args) {

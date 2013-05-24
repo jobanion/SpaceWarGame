@@ -186,7 +186,7 @@ public class Customize extends BasicGameState implements ServerTALK{
 		if((posX>(Main.width/2) - 390 + 495 && posX<(Main.width/2) - 390 + 560) && (posY>(Main.height/2) - 200 - 70 && posY<(Main.height/2) - 200 - 50)){
 			if(Mouse.isButtonDown(0)){
 				MultiplayerGame.shipName = oldShipName;
-				sbg.enterState(0);
+				sbg.enterState(Main.gameState.MENU.value);
 			}
 		}
 		
@@ -194,7 +194,7 @@ public class Customize extends BasicGameState implements ServerTALK{
 		if((posX>(Main.width/2) - 390 + 595 && posX<(Main.width/2) - 390 + 722)&&(posY>(Main.height/2) - 200 - 70 && posY<(Main.height/2 - 200 - 50))){
 			if(Mouse.isButtonDown(0)){
 				apply();
-				sbg.enterState(0);				
+				sbg.enterState(Main.gameState.MENU.value);				
 			}
 		}
 		
@@ -242,11 +242,11 @@ public class Customize extends BasicGameState implements ServerTALK{
 
 		if(input.isKeyPressed(Input.KEY_ENTER)) {
 			apply();
-			sbg.enterState(0);
+			sbg.enterState(Main.gameState.MENU.value);
 		}
 		if(input.isKeyPressed(Input.KEY_ESCAPE)) {
 			MultiplayerGame.shipName = oldShipName;
-			sbg.enterState(0);
+			sbg.enterState(Main.gameState.MENU.value);
 		}
 	}
 	
