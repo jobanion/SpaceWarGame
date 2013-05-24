@@ -34,11 +34,8 @@ public class Ship {
 
 	public void isSPCollision(){
 		for(Ship current : SingleplayerGame.ships){
-			if((this.getClass() == AIMP.class && 
-					current.getClass() == AIMP.class) || 
-					(this.getClass() == OtherPlayer.class && 
-					current.getClass() == OtherPlayer.class)) { // Split up to be more legible
-
+			if((this.getClass() == AISP.class && current.getClass() == AISP.class) ||
+			   (this.getClass() == OtherPlayer.class && current.getClass() == OtherPlayer.class)) { // Split up to be more legible
 				continue;
 			}
 
@@ -52,7 +49,7 @@ public class Ship {
 					currentShotSP.hit = true;
 					SingleplayerGame.ships.remove(current);
 
-					if(current.getClass() == AIMP.class){
+					if(current.getClass() == AISP.class){
 						SingleplayerGame.count--;
 						SingleplayerGame.killCount++;
 						SingleplayerGame.aiShips.remove(current);
@@ -72,7 +69,7 @@ public class Ship {
 	public void isMPCollision() {
 		for(Ship current : MultiplayerGame.ships){
 			if((this.getClass() == AIMP.class && current.getClass() == AIMP.class) || 
-					(this.getClass() == OtherPlayer.class && current.getClass() == OtherPlayer.class)) { 
+			   (this.getClass() == OtherPlayer.class && current.getClass() == OtherPlayer.class)) { 
 				continue;
 			}
 
@@ -104,12 +101,12 @@ public class Ship {
 	}
 
 	public void update(GameContainer gc, StateBasedGame sbg, int delta, Input input) throws SlickException{
-//		if(input.isKeyDown(Input.KEY_C) && Menu.multi){
-//			MultiplayerGame.respawnAI();
-//		}
-//		if(input.isKeyDown(Input.KEY_C) && !Menu.multi){
-//			SingleplayerGame.respawnAI();
-//		}
+		if(input.isKeyDown(Input.KEY_C) && Menu.multi){
+			MultiplayerGame.respawnAI();
+		}
+		if(input.isKeyDown(Input.KEY_C) && !Menu.multi){
+			SingleplayerGame.respawnAI();
+		}
 
 		float rotates = 0.2f * delta;
 
@@ -135,7 +132,7 @@ public class Ship {
 			this.move(hip, rotation);
 		}
 
-		if(input.isKeyDown(Input.KEY_SPACE) && !this.isHit && Menu.multi == false){
+		if(input.isKeyDown(Input.KEY_SPACE) && !this.isHit && Menu.multi == false){ // Singleplayer
 			if(!shotFired && !gc.isPaused()) {
 				currentShotSP = new ShotSP(hip + 3, this.x+10, this.y+5, this.ship.getRotation(), 1);
 				shotFired = true;
@@ -144,7 +141,7 @@ public class Ship {
 			}
 		}
 		
-		if(input.isKeyDown(Input.KEY_SPACE) && !this.isHit && Menu.multi == true){
+		if(input.isKeyDown(Input.KEY_SPACE) && !this.isHit && Menu.multi == true){ // Multiplayer
 			if(!shotFired && !gc.isPaused()) {
 				currentShotMP = new ShotMP(hip + 3, this.x+10, this.y+5, this.ship.getRotation(), 1);
 				shotFired = true;

@@ -7,11 +7,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 
-// the left(left) and shoot(space) cancel each other out for the player1 
-// the right(d) and shoot(f) on player2 cancel each other out as well
-
-
-@SuppressWarnings("deprecation")
 public class SingleplayerGame extends BasicGameState {
 
 	String backgroundImage = "SpaceWormHole.jpg";
@@ -34,8 +29,6 @@ public class SingleplayerGame extends BasicGameState {
 	public static int count = 0, numOfAI = 1;
 	public static boolean init = false, playerDead = false;
 	public String respawn = "Respawn (R)", resume = "Resume (R)", mainMenu = "Main Menu (M)", exit = "Quit Game (Q)";
-	
-	TrueTypeFont font4, font5;
 	
 	public SingleplayerGame(int state) {
 	}
@@ -181,7 +174,6 @@ public class SingleplayerGame extends BasicGameState {
 
 	public static void aiDoStuff(int delta) {
 		if(aiShips.isEmpty() && System.currentTimeMillis() >= respawnTimer + 2000){
-			//			if(System.currentTimeMillis() >= respawnTimer + 2000)
 			respawnAI();
 		}
 		aiRotate();
@@ -231,11 +223,12 @@ public class SingleplayerGame extends BasicGameState {
 	}
 
 	public void initial() throws SlickException{
+		initial = false; 	// set boolean variable = false, so it does not repeat initialization, and reset to true when go to main
 		shipImage = "spaceship" + Main.user.ups.shipNum + ".gif";
 		playerShip = new Ship(Main.user.ups.getUsername(), 600, 300, shipImage);
 		ships.add(playerShip);
+		numOfAI = 1;
 		respawnAI();
-		initial = false; 	// set boolean variable = false, so it does not repeat initialization, and reset to true when go to main
 	}
 
 	// State based stuff thingie

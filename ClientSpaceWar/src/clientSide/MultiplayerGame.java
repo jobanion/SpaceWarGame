@@ -13,7 +13,6 @@ import org.newdawn.slick.state.*;
 // the left(left) and shoot(space) cancel each other out for the player1 
 // the right(d) and shoot(f) on player2 cancel each other out as well
 
-@SuppressWarnings("deprecation")
 public class MultiplayerGame extends BasicGameState implements ServerTALK{
 
 	String backgroundImage = "SpaceWormHole.jpg";
@@ -48,7 +47,7 @@ public class MultiplayerGame extends BasicGameState implements ServerTALK{
 	public static int count = 0, numOfAI = 1;
 	static boolean init = false, playerDead = false, menu = false;
 	public String respawn = "Respawn (R)", resume = "Resume (R)", mainMenu = "Main Menu (M)", exit = "Quit Game (Q)";
-	TrueTypeFont font4, font5;
+
 	public MultiplayerGame(int state) {
 	}
 
@@ -57,18 +56,6 @@ public class MultiplayerGame extends BasicGameState implements ServerTALK{
 			if (!initial){
 				initial();
 			}
-
-			/// set up Communication stuff with server (XXX MOVED TO SERVERCHOOSE)
-			//			try{
-			//				client = new Socket("192.555.5.5", port);		// 10.6.53.208 			// 75.175.60.225
-			//				out = new DataOutputStream(client.getOutputStream());
-			//				in = new DataInputStream(client.getInputStream());
-			//				canTalk = true;
-			//			} catch (Exception ioe){
-			//				System.out.println("Could not set up Server communications!");
-			//				canTalk = false;
-			//			}
-			/// communication set up
 
 			background = new Image("res/" + backgroundImage);
 			explosion = new Image("res/" + explosionImage);
@@ -228,7 +215,6 @@ public class MultiplayerGame extends BasicGameState implements ServerTALK{
 
 	public static void aiDoStuff(int delta) {
 		if(aiShips.isEmpty() && System.currentTimeMillis() >= respawnTimer + 2000){
-			//			if(System.currentTimeMillis() >= respawnTimer + 2000)
 			respawnAI();
 		}
 		aiRotate();
@@ -439,7 +425,7 @@ public class MultiplayerGame extends BasicGameState implements ServerTALK{
 		// add user ship(s)
 		pShip1 = new Ship("player", 400, 300, shipName); 
 		ships.add(pShip1);
-
+		numOfAI = 1;
 		respawnAI();
 		
 		String toUser = null;
