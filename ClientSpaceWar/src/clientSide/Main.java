@@ -13,11 +13,11 @@ public class Main extends StateBasedGame{
 		MENU(0), CUSTOMIZE(1), MULTIPLAYERGAME(2), LOGIN(3), SINGLEPLAYERGAME(4);
 		int value;
 
-		private gameState(int value) { // Because the yare expected to be ints when being passed in
+		private gameState(int value) { // Because they are expected to be ints when being passed in
 			this.value = value;
 		}
 	};
-	public static int width = 1200, height = 650;														    // Window dimensions
+	public static int width = 1200, height = 650;	 // Window dimensions
 
 	public Main(String gamename){
 		super(gamename);

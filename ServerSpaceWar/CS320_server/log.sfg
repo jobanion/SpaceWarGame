@@ -1402,3 +1402,205 @@
 22:22:39->  29: Could not read from user: null
 22:22:39->  29: File located: writing..CS320_server\jeff\MyStats.gme
 22:22:39->  28: Closing Successful: Client Disconnected
+07:45:56-> %%%%%%%%%%%%%%%%%%%%%
+07:45:56-> %DATE: Fri May 24 07:45:56 PDT 2013%
+07:45:56-> %%PORT:	 3865  	   :%%
+07:45:56-> Initialization Complete
+07:46:07->  0: User has connected sucessfully
+07:46:07->  0: HIjeff|qwe|1
+07:46:07->  0: KFile located: reading..
+07:46:07->  0: VALUES: jeff
+07:46:07->  0: VALUES: qwe
+07:46:07->  0: VALUES: 1
+07:46:07->  0: VALUES: jeff
+07:46:07->  0: VALUES: qwe
+07:46:07->  0: compareUNAME: true
+07:46:07->  0: successful6
+07:46:07->  0: Client Connection Successful: disconnecting
+07:46:07->  0: Closing Successful: Client Disconnected
+07:46:21->  1: User has connected sucessfully
+07:46:21->  1: HIjeff|qwe|spaceship6.gif
+07:46:21->  1: KFile located: reading..
+07:46:21->  1: VALUES: jeff
+07:46:21->  1: VALUES: qwe
+07:46:21->  1: VALUES: spaceship6.gif
+07:46:21->  1: VALUES: jeff
+07:46:21->  1: VALUES: qwe
+07:46:21->  1: compareUNAME: true
+07:46:21->  1: KFile located: reading..
+07:46:21->  1: Client connection successful: transferring him to game client
+07:46:21->  1: Game not found: creating...
+07:46:22->  3: gave string to userJA|34.56|44.55|54.32|1
+07:46:41->  3: Could not update Thread!
+07:46:41->  3: Could not update User! Connection reset by peer: socket write error
+07:46:41->  3: Closing...
+07:46:41->  3: Could not read from user: Connection reset
+07:46:41->  3: File located: writing..CS320_server\jeff\MyStats.gme
+07:46:41->  1: Closing Successful: Client Disconnected
+07:46:54->  4: User has connected sucessfully
+07:46:54->  4: HIjeff|qwe|1
+07:46:54->  4: KFile located: reading..
+07:46:54->  4: VALUES: jeff
+07:46:54->  4: VALUES: qwe
+07:46:54->  4: VALUES: 1
+07:46:54->  4: VALUES: jeff
+07:46:54->  4: VALUES: qwe
+07:46:54->  4: compareUNAME: true
+07:46:54->  4: successful6
+07:46:54->  4: Client Connection Successful: disconnecting
+07:46:54->  4: Closing Successful: Client Disconnected
+07:46:59->  5: User has connected sucessfully
+07:46:59->  5: HIjeff|qwe|6
+07:46:59->  5: KFile located: reading..
+07:46:59->  5: VALUES: jeff
+07:46:59->  5: VALUES: qwe
+07:46:59->  5: VALUES: 6
+07:46:59->  5: VALUES: jeff
+07:46:59->  5: VALUES: qwe
+07:46:59->  5: compareUNAME: true
+07:46:59->  5: File located: writing..CS320_server\jeff\jeff.gme
+07:46:59->  5: Closing Successful: Client Disconnected
+08:00:15->  6: User has connected sucessfully
+08:00:15->  6: HIjeff|qwe|1
+08:00:15->  6: KFile located: reading..
+08:00:15->  6: VALUES: jeff
+08:00:15->  6: VALUES: qwe
+08:00:15->  6: VALUES: 1
+08:00:15->  6: VALUES: jeff
+08:00:16->  6: VALUES: qwe
+08:00:16->  6: compareUNAME: true
+08:00:16->  6: successful6
+08:00:16->  6: Client Connection Successful: disconnecting
+08:00:16->  6: Closing Successful: Client Disconnected
+08:00:28->  7: User has connected sucessfully
+08:00:28->  7: HIjeff|qwe|spaceship6.gif
+08:00:28->  7: KFile located: reading..
+08:00:28->  7: VALUES: jeff
+08:00:28->  7: VALUES: qwe
+08:00:28->  7: VALUES: spaceship6.gif
+08:00:28->  7: VALUES: jeff
+08:00:28->  7: VALUES: qwe
+08:00:28->  7: compareUNAME: true
+08:00:28->  7: KFile located: reading..
+08:00:28->  7: Client connection successful: transferring him to game client
+08:00:28->  7: Found game: connecting...
+08:00:29->  8: gave string to userJA|34.56|44.55|54.32|1
+08:00:42->  8: Could not update Thread!
+08:00:42->  8: Could not update User! Connection reset by peer: socket write error
+08:00:42->  8: Closing...
+08:00:42->  8: Could not read from user: Connection reset
+08:00:42->  8: File located: writing..CS320_server\jeff\MyStats.gme
+08:00:42->  7: Closing Successful: Client Disconnected
+08:03:55->  9: User has connected sucessfully
+08:03:55->  9: HIjeff|qwe|1
+08:03:55->  9: KFile located: reading..
+08:03:55->  9: VALUES: jeff
+08:03:55->  9: VALUES: qwe
+08:03:55->  9: VALUES: 1
+08:03:55->  9: VALUES: jeff
+08:03:55->  9: VALUES: qwe
+08:03:55->  9: compareUNAME: true
+08:03:55->  9: successful6
+08:03:55->  9: Client Connection Successful: disconnecting
+08:03:55->  9: Closing Successful: Client Disconnected
+08:04:17->  10: User has connected sucessfully
+08:04:17->  10: HIjeff|qwe|spaceship6.gif
+08:04:17->  10: KFile located: reading..
+08:04:17->  10: VALUES: jeff
+08:04:17->  10: VALUES: qwe
+08:04:17->  10: VALUES: spaceship6.gif
+08:04:17->  10: VALUES: jeff
+08:04:17->  10: VALUES: qwe
+08:04:17->  10: compareUNAME: true
+08:04:17->  10: KFile located: reading..
+08:04:17->  10: Client connection successful: transferring him to game client
+08:04:17->  10: Found game: connecting...
+08:04:17->  11: gave string to userJA|34.56|44.55|54.32|1
+08:04:22->  11: Could not update Thread!
+08:04:22->  11: Could not update User! Connection reset by peer: socket write error
+08:04:22->  11: Closing...
+08:04:22->  11: Could not read from user: Connection reset
+08:04:22->  11: File located: writing..CS320_server\jeff\MyStats.gme
+08:04:22->  10: Closing Successful: Client Disconnected
+09:13:41->  12: User has connected sucessfully
+09:13:41->  12: HIjeff|qwe|1
+09:13:41->  12: KFile located: reading..
+09:13:41->  12: VALUES: jeff
+09:13:41->  12: VALUES: qwe
+09:13:41->  12: VALUES: 1
+09:13:41->  12: VALUES: jeff
+09:13:41->  12: VALUES: qwe
+09:13:41->  12: compareUNAME: true
+09:13:41->  12: successful6
+09:13:41->  12: Client Connection Successful: disconnecting
+09:13:41->  12: Closing Successful: Client Disconnected
+09:15:27->  13: User has connected sucessfully
+09:15:27->  13: HIjeff|qwe|1
+09:15:27->  13: KFile located: reading..
+09:15:27->  13: VALUES: jeff
+09:15:27->  13: VALUES: qwe
+09:15:27->  13: VALUES: 1
+09:15:27->  13: VALUES: jeff
+09:15:27->  13: VALUES: qwe
+09:15:27->  13: compareUNAME: true
+09:15:27->  13: successful6
+09:15:27->  13: Client Connection Successful: disconnecting
+09:15:27->  13: Closing Successful: Client Disconnected
+09:15:29->  14: User has connected sucessfully
+09:15:29->  14: HIjeff|qwe|spaceship6.gif
+09:15:29->  14: KFile located: reading..
+09:15:30->  14: VALUES: jeff
+09:15:30->  14: VALUES: qwe
+09:15:30->  14: VALUES: spaceship6.gif
+09:15:30->  14: VALUES: jeff
+09:15:30->  14: VALUES: qwe
+09:15:30->  14: compareUNAME: true
+09:15:30->  14: KFile located: reading..
+09:15:30->  14: Client connection successful: transferring him to game client
+09:15:30->  14: Found game: connecting...
+09:15:30->  15: gave string to userJA|34.56|44.55|54.32|1
+09:16:27->  15: Could not update Thread!
+09:16:27->  15: Could not update User! Software caused connection abort: socket write error
+09:16:27->  15: Closing...
+09:16:27->  15: Could not read from user: Software caused connection abort: recv failed
+09:16:27->  15: File located: writing..CS320_server\jeff\MyStats.gme
+09:16:27->  14: Closing Successful: Client Disconnected
+09:18:23->  16: User has connected sucessfully
+09:18:23->  16: HIjeff|qwe|1
+09:18:23->  16: KFile located: reading..
+09:18:23->  16: VALUES: jeff
+09:18:23->  16: VALUES: qwe
+09:18:23->  16: VALUES: 1
+09:18:23->  16: VALUES: jeff
+09:18:23->  16: VALUES: qwe
+09:18:23->  16: compareUNAME: true
+09:18:23->  16: successful6
+09:18:23->  16: Client Connection Successful: disconnecting
+09:18:23->  16: Closing Successful: Client Disconnected
+09:19:58->  17: User has connected sucessfully
+09:19:58->  17: HIjeff|qwe|spaceship6.gif
+09:19:58->  17: KFile located: reading..
+09:19:58->  17: VALUES: jeff
+09:19:58->  17: VALUES: qwe
+09:19:58->  17: VALUES: spaceship6.gif
+09:19:58->  17: VALUES: jeff
+09:19:58->  17: VALUES: qwe
+09:19:58->  17: compareUNAME: true
+09:19:58->  17: KFile located: reading..
+09:19:58->  17: Client connection successful: transferring him to game client
+09:19:58->  17: Found game: connecting...
+09:19:58->  18: gave string to userJA|34.56|44.55|54.32|1
+09:20:16->  18: Could not update Thread!
+09:20:16->  18: Could not update User! Connection reset by peer: socket write error
+09:20:16->  18: Closing...
+09:20:16->  18: Could not read from user: Connection reset
+09:20:16->  18: File located: writing..CS320_server\jeff\MyStats.gme
+09:20:16->  17: Closing Successful: Client Disconnected
+10:39:47-> %%%%%%%%%%%%%%%%%%%%%
+10:39:47-> %DATE: Fri May 24 10:39:47 PDT 2013%
+10:39:47-> %%PORT:	 3865  	   :%%
+10:39:47-> Error with Socket: Abort-> Address already in use: JVM_Bind
+09:24:54-> %%%%%%%%%%%%%%%%%%%%%
+09:24:54-> %DATE: Fri May 24 09:24:54 PDT 2013%
+09:24:54-> %%PORT:	 3865  	   :%%
+09:24:54-> Initialization Complete

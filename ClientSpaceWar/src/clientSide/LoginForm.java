@@ -311,7 +311,7 @@ public class LoginForm extends JDialog implements ServerTALK{
 			out = new DataOutputStream(mySocket.getOutputStream());
 			in = new DataInputStream(mySocket.getInputStream());
 		} catch (IOException ioe){
-			System.out.println("ERROR IN SETUPCONNECTION()");
+			System.out.println("ERROR IN SetUpConnection()");
 			// set up pop-ups later
 			CloseConnection();
 			return false;
@@ -320,7 +320,8 @@ public class LoginForm extends JDialog implements ServerTALK{
 	}
 
 	@Override
-	public void gameTalk() {}
+	public void gameTalk() {
+	}
 
 	@Override
 	public boolean CloseConnection() {
