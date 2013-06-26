@@ -1604,3 +1604,19 @@
 09:24:54-> %DATE: Fri May 24 09:24:54 PDT 2013%
 09:24:54-> %%PORT:	 3865  	   :%%
 09:24:54-> Initialization Complete
+09:45:04-> %%%%%%%%%%%%%%%%%%%%%
+09:45:04-> %DATE: Fri May 31 09:45:04 PDT 2013%
+09:45:04-> %%PORT:	 3865  	   :%%
+09:45:04-> Initialization Complete
+09:45:19->  0: User has connected sucessfully
+09:45:19->  0: HIjeff|qwe|1
+09:45:19->  0: KFile located: reading..
+09:45:19->  0: VALUES: jeff
+09:45:19->  0: VALUES: qwe
+09:45:19->  0: VALUES: 1
+09:45:19->  0: VALUES: jeff
+09:45:19->  0: VALUES: qwe
+09:45:19->  0: compareUNAME: true
+09:45:19->  0: successful6
+09:45:19->  0: Client Connection Successful: disconnecting
+09:45:19->  0: Closing Successful: Client Disconnected
